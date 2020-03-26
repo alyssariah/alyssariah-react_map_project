@@ -14,9 +14,11 @@ My project will be a national parks app that accesses information from all the n
 https://www.nps.gov/subjects/developer/api-documentation.htm
 
 I pulled some of the api using this code in my sandbox https://codesandbox.io/s/practiceapicall-ldkdq: 
+
+
 const getData = async () => {
     let url =
-      "https://developer.nps.gov/api/v1/parks?q=Grand Canyon&api_key=swkeV3UVN0seL6RIBkXzn4KSN0NVXES37Ub2sYnP";
+      "https://developer.nps.gov/api/v1/parks?q=GrandCanyonapi_key=swkeV3UVN0seL6RIBkXzn4KSN0NVXES37Ub2sYnP";
     let res = await fetch(url);
     let json = await res.json();
     console.log(json);

@@ -7,11 +7,28 @@
 
 ## Project Description
 
-Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality.
+My project will be a national parks app that accesses information from all the national parks. A user can search by name and perhaps even state if I am feeling ambitious to find their desired national park with wonderful information. The app will also contain a list of the users already visited national parks and they can add more to that list if they desire. 
 
 ## API
 
-Use this section to include info about the API you have chosen and a code snippet of the data that it returns and is required for your project. 
+https://www.nps.gov/subjects/developer/api-documentation.htm
+
+I pulled some of the api using this code in my sandbox https://codesandbox.io/s/practiceapicall-ldkdq: 
+const getData = async () => {
+    let url =
+      "https://developer.nps.gov/api/v1/parks?q=Grand Canyon&api_key=swkeV3UVN0seL6RIBkXzn4KSN0NVXES37Ub2sYnP";
+    let res = await fetch(url);
+    let json = await res.json();
+    console.log(json);
+    let obj = json.data
+    for (let i =0; i< obj.length; i++){
+      if (obj[i].designation === "National Park"){
+        console.log("here is my object",obj[i])
+        setWeather(obj[i].directionsInfo)
+      }
+    }
+  };
+  getData();
 
 
 ```

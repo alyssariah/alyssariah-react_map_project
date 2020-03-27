@@ -1,13 +1,16 @@
 import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import GoogleApiWrapper from "./Components/GoogleApiWrapper"
+import MapContainer from "./Components/MapContainer"
 
 function App() {
  
    return (
     <div className="App">
-      <GoogleApiWrapper />
+      <nav>
+        
+      </nav>
+      <MapContainer />
       {/* <iframe
           style={{width:"450px",
                   height:"500px",

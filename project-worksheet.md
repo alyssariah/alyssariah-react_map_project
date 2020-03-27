@@ -33,6 +33,7 @@ https://developers.google.com/maps/documentation/
 
 Upload images of wireframe to cloudinary and add the link here with a description of the specific wireframe. Also, define the the React components and the architectural design of your app.
 
+- [https://res.cloudinary.com/dwbqzx4rr/image/upload/v1585322111/React_Mobile_Wireframe_ex4qka.png]()
 - [https://res.cloudinary.com/dwbqzx4rr/image/upload/v1585283741/React_Wireframe_z5vygs.png]()
 - [https://docs.google.com/drawings/d/16_N3dAdj9kRaMiriIf-DeNjyUneBz-TRA8VwM9zf00U/edit]()
 
@@ -42,9 +43,10 @@ Upload images of wireframe to cloudinary and add the link here with a descriptio
 MVP List:
 - [x] Find external API
 - [x] Render data on page
+- [x] Implement Router into React
 - [ ] Learn how to get marker on page after someone inputs one/many addresses
 - [ ] Learn how to make markers change colors or be interactive
-- [ ] Navigation bar
+- [x] Navigation bar
 - [ ] Form for input of addresses
 - [ ] Responsive
 - [ ] Make DriverList
@@ -66,7 +68,7 @@ Based on the initial logic defined in the previous sections try and breakdown th
 | --- | :---: |  
 | App | This will have the navigation bar and footer with a switch route of Map and DriverList between the nav and the footer | 
 | Map | This will take in the api data from google maps and render a map. It will also place markers on map based on the addresses input from the form in the navigation bar | 
-| DriverList | This will render a list based on rides assigned to drivers from the Map component | 
+| List | This will render a list based on rides assigned to drivers from the Map component | 
 
 
 Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Also, put a gif at the top of your Readme before you pitch, and you'll get a panda prize.
@@ -76,9 +78,9 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Adding Form | H | 2hrs|  - hrs | -hrs |
 | Marker API | H | 3hrs| -hrs | -hrs |
 | Marker from Input | H | 4hrs| -hrs | -hrs |
-| Navbar| H | 2hrs| -hrs | -hrs |
+| Navbar| H | 2hrs| 1hrs | -hrs |
 | Form | H | 2hrs| -hrs | -hrs |
-| DriverList | H | 2hrs| -hrs | -hrs |
+| List | H | 2hrs| -hrs | -hrs |
 | Responsive| H | 4hrs| -hrs | -hrs |
 | Form to API | H | 4hrs| -hrs | -hrs |
 | Marker Interative| H | 6hrs| -hrs | -hrs |

@@ -1,26 +1,25 @@
-import React, {useState} from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Home from "./Components/Home"
 import MapContainer from "./Components/MapContainer"
+import List from "./Components/List"
+import {Switch, Route, Link, Redirect} from "react-router-dom"
 
 function App() {
  
    return (
     <div className="App">
-      <nav>
-        
-      </nav>
-      <MapContainer />
-      {/* <iframe
-          style={{width:"450px",
-                  height:"500px",
-                  frameborder:"0",
-                  border:"0"
-                 }}
-          src="https://www.google.com/maps/embed/v1/search?key=AIzaSyDJ56l2Y_6K3vN5rH30aKddRVljnEsuR_Y&q=record+stores+in+Seattle" allowfullscreen>
-      </iframe> */}
-      <div id="map">
-       </div>
+      <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route path="/map" component={MapContainer} />
+          <Route path="/list" component={List} />
+          <Redirect to="/"/>
+      </Switch>
+          <nav>
+            <Link to="/"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Home_icon_black.png"/><br/>Home</Link>
+            <Link to="/map"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Map_pin_icon.svg"/><br/>Map</Link>
+            <Link to="/list"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/4/43/Noun_project_list_icon_1380018_cc.svg"/><br/>List</Link>
+          </nav>
       </div>
   );
 }

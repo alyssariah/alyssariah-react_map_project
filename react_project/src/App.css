@@ -1,7 +1,38 @@
 .App {
   text-align: center;
-}
-.map{
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+}
+form{
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  
+  width: 80vw;
+  margin: 10px;
+  border-radius: 5px;
+  border-color: white;
+  box-shadow: 2px 2px gray;
+  font-size: 12px;
+}
+input {
+  flex: 1
+}
+nav {
+  height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+}
+nav a {
+  text-decoration: none;
+  color: black;
+  flex: 1;
+  font-size: 14px;
+  cursor: pointer;
+}
+.logo{
+  height: 18px;
+  width: 15px;
 }

@@ -7,7 +7,7 @@
 
 ## Project Description
 
-My project will be utilizing the Google Maps API to coordinate rides for a group of people. It will find the location of drivers and of people needing a ride on a map to show which people the drivers should pick up. User can click on markers to add people to specific drivers in a list. List will be formatted in a way to emailed out. If I am feeling more ambitious, perhaps routes for drivers can be made.
+My project will be utilizing the Google Maps API to coordinate rides for a group of people. It will find the location of the drivers and of the people needing a ride on a map to show which people the drivers should pick up. User can click on markers to add people to specific drivers in a list. List will be formatted in a way to be easily read and distributed. If I am feeling more ambitious, perhaps routes for drivers can be made.
 
 ## API
 
@@ -39,8 +39,6 @@ Upload images of wireframe to cloudinary and add the link here with a descriptio
 
 ### MVP/PostMVP - 5min
 
-The functionality will then be divided into two separate lists: MPV and PostMVP.  Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.  
-
 MVP List:
 - [x] Find external API
 - [x] Render data on page
@@ -51,17 +49,13 @@ MVP List:
 - [ ] Responsive
 - [ ] Make DriverList
 - [ ] Pass information over to DriverList from Maps
-- [ ] 
-- [ ] 
 
-=
 
-#### PostMVP EXAMPLE
 
 PostMVP List:
 - [ ] CSS touchups
 - [ ] Discover driver routes for driver
-- [ ] 
+
 
 ## Components
 ##### Writing out your components and its descriptions isn't a required part of the proposal but can be helpful.
@@ -91,7 +85,7 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Click function to DriverList | H | 4hrs| -hrs | -hrs |
 | Driver Routes | L | 4hrs| -hrs | -hrs |
 | CSS Touchups | H | 2hrs| -hrs | -hrs |
-| Total | H | hrs| -hrs | -hrs |
+| Total | H | hrs| 39hrs | -hrs |
 
 ## Additional Libraries
  Use this section to list all supporting libraries and thier role in the project such as Axios, ReactStrap, D3, etc. 

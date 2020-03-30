@@ -33,9 +33,9 @@ https://developers.google.com/maps/documentation/
 
 Upload images of wireframe to cloudinary and add the link here with a description of the specific wireframe. Also, define the the React components and the architectural design of your app.
 
-- [https://res.cloudinary.com/dwbqzx4rr/image/upload/v1585322111/React_Mobile_Wireframe_ex4qka.png]()
-- [https://res.cloudinary.com/dwbqzx4rr/image/upload/v1585283741/React_Wireframe_z5vygs.png]()
-- [https://docs.google.com/drawings/d/16_N3dAdj9kRaMiriIf-DeNjyUneBz-TRA8VwM9zf00U/edit]()
+- https://res.cloudinary.com/dwbqzx4rr/image/upload/v1585322111/React_Mobile_Wireframe_ex4qka.png
+- https://res.cloudinary.com/dwbqzx4rr/image/upload/v1585283741/React_Wireframe_z5vygs.png
+- https://docs.google.com/drawings/d/16_N3dAdj9kRaMiriIf-DeNjyUneBz-TRA8VwM9zf00U/edit
 
 
 ### MVP/PostMVP - 5min
@@ -44,12 +44,16 @@ MVP List:
 - [x] Find external API
 - [x] Render data on page
 - [x] Implement Router into React
-- [ ] Learn how to get marker on page after someone inputs one/many addresses
-- [ ] Learn how to make markers change colors or be interactive
+- [x] Learn how to get marker on page after someone inputs one/many addresses
+- [x] InfoBar
+- [ ] Marker hover
+- [x] Marker Design
+- [ ] Assigning passengers to drivers on Maps
 - [x] Navigation bar
-- [ ] Form for input of addresses
+- [x] Form for input of addresses
 - [ ] Responsive
-- [ ] Make DriverList
+- [ ] Make ListPage
+- [ ] Make HomePage
 - [ ] Pass information over to DriverList from Maps
 
 
@@ -75,16 +79,17 @@ Time frames are also key in the development cycle.  You have limited time to cod
 
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Adding Form | H | 2hrs|  - hrs | -hrs |
-| Marker API | H | 3hrs| -hrs | -hrs |
-| Marker from Input | H | 4hrs| -hrs | -hrs |
+| Marker API | H | 3hrs| 1hrs | -hrs |
+| Marker from Input | H | 4hrs| 2hrs | -hrs |
 | Navbar| H | 2hrs| 1hrs | -hrs |
-| Form | H | 2hrs| -hrs | -hrs |
+| Form | H | 2hrs| 2hrs | -hrs |
+| InfoBar | H | 2hrs| 3hrs | -hrs |
 | List | H | 2hrs| -hrs | -hrs |
 | Responsive| H | 4hrs| -hrs | -hrs |
-| Form to API | H | 4hrs| -hrs | -hrs |
+| Form to API | H | 4hrs| 2hrs | -hrs |
 | Marker Interative| H | 6hrs| -hrs | -hrs |
-| Click function to DriverList | H | 4hrs| -hrs | -hrs |
+| Form to DriverList | H | 4hrs| 2hrs | -hrs |
+| Form to Map| H | 4hrs| 3hrs | -hrs |
 | Driver Routes | L | 4hrs| -hrs | -hrs |
 | CSS Touchups | H | 2hrs| -hrs | -hrs |
 | Total | H | hrs| 39hrs | -hrs |

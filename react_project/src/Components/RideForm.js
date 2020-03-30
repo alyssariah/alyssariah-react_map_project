@@ -1,6 +1,6 @@
 import React,{useState} from "react"
 
-function Form(props){
+function RideForm(props){
     const [address, setAddress] = useState("")
 
 
@@ -18,15 +18,18 @@ function Form(props){
         let json = await res.json();
         let place = json.results[0].geometry.location
         props.coordinates(place.lat, place.lng)
+        setAddress("")
     }
-
 
     return(
         <form onSubmit={changeAddress}>
-        <input type="text" placeholder="Search for driver address" 
-        onChange={handleChange} 
-        value={address}/>
+        <input 
+            style={{margin: "60px 20px"}}
+            type="text" 
+            placeholder="Search for those who need a ride address" 
+            onChange={handleChange} 
+            value={address}/>
         </form>
     )
 }
-export default Form
+export default RideForm

@@ -23,30 +23,39 @@ function List(props){
             }
             })
             return (
-                <>
-                <h4 className="listTitles" key={index}>{obj.name}</h4>
+                <div className="listComponent">
+                    <h4 key={index}>{obj.name}</h4>
                     <ul>
                         {placePassenger}
                     </ul>
-                </>
+                </div>
             )
     })
     return(
         <div className="information">
-            <h2>List Page</h2>
-            <h4 className="listTitles">Drivers:</h4>
-            <ul>
-                {makeDriverList}
-            </ul>
-            <h4 className="listTitles">Passengers:</h4>
-            <ul>
-                {makeRideList}
-            </ul>
-            <h4>Assign Passengers to Drivers</h4>
-            <div className="assign">
-                {assignDriverList}
+            <header>
+                <h2>List</h2>
+            </header>
+            <div className="list">
+            <div className="overlay">
+                <div className="fullList">
+                    <h3 className="listTitles">Drivers:</h3>
+                    <ul>
+                        {makeDriverList}
+                    </ul>
+                    <h3 className="listTitles">Passengers:</h3>
+                    <ul>
+                        {makeRideList}
+                    </ul>
+                </div>
+                <div className="assignWithTitle">
+                    <h3>Assigned Passengers to Drivers:</h3>
+                    <div className="assign">
+                        {assignDriverList}
+                    </div>
+                </div>
             </div>
-            
+            </div>
         </div>
 
     )

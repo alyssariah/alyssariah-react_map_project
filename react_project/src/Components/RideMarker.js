@@ -23,16 +23,13 @@ const RideMarker = (props) => {
                 onClick={_onClick} />
             {/* Below is info window component */}
             {show && (
-            <div
-            className="infoRBox"
-                >
+            <div className="infoRBox" onClick={disappearInfo}>
                     <div className="exitInfo" onClick={disappearInfo}>x</div>
                         <p>
                             <span>{props.rideList.name}</span><br/>
                             {props.rideList.address}
                         </p>
-                        <h5 onClick={()=> {assignPass(props.rideList.name)
-                                            disappearInfo()}}>
+                        <h5 onClick={()=> assignPass(props.rideList.name)}>
                             Assign Driver 
                             <div className="plusSign">+</div>
                         </h5>

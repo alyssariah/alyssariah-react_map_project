@@ -28,9 +28,7 @@ const DriverMarker = (props) => {
              </div>   
             {/* Below is info window component */}
             {show && (
-                <div
-                className="infoDBox"
-                >
+                <div className="infoDBox" onClick={disappearInfo}>
                     <div className="exitInfo" onClick={disappearInfo}>x</div>
                     <p><span>{props.driverList.name}</span><br/>
                     {props.driverList.address}</p>

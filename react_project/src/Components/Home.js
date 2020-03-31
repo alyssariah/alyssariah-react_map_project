@@ -57,8 +57,10 @@ function Home(props){
 
     return(
         <div className="information">
-           <h2>Carpool <span>coordination</span></h2>
-           <img onClick={()=>{setShow(!show)}}className="helpIcon" src="https://cdn1.iconfinder.com/data/icons/education-set-4/512/information-512.png"/>
+            <header>
+                <h2>Carpool <span>coordinator</span></h2>
+                <img onClick={()=>{setShow(!show)}}className="helpIcon" src="https://cdn1.iconfinder.com/data/icons/education-set-4/512/information-512.png"/>
+            </header>    
             {show && (<div className="instructions">
                 <ol>
                 <h4>Instructions: </h4>

@@ -53,7 +53,7 @@ MVP List:
 - [x] Form for input of addresses
 - [ ] Responsive
 - [ ] Make ListPage
-- [ ] Make HomePage
+- [x] Make HomePage
 - [x] Pass information over to DriverList from Maps
 
 

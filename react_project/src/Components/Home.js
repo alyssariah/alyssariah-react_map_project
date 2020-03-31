@@ -88,7 +88,7 @@ function Home(props){
                     onChange={handleDriverAddress} 
                     value={driverAddress}
                     required="required"/>
-                <button>Submit</button> 
+                <button>Add to Map</button> 
                 <p className="alert">
                     {driverAlert}
                 </p>   
@@ -107,7 +107,7 @@ function Home(props){
                     onChange={handleRideAddress} 
                     value={rideAddress}
                     required="required"/>
-                <button>Submit</button>
+                <button>Add to Map</button>
                 <p className="alert">{alert}</p>    
             </form>
 

@@ -27,9 +27,16 @@ const RideMarker = (props) => {
             className="infoRBox"
                 >
                     <div className="exitInfo" onClick={disappearInfo}>x</div>
-                    <p><span>{props.rideList.name}</span><br/>
-                    {props.rideList.address}</p>
-                    <h5 onClick={()=> assignPass(props.rideList.name)}>Assign Driver <div className="plusSign">+</div></h5></div>
+                        <p>
+                            <span>{props.rideList.name}</span><br/>
+                            {props.rideList.address}
+                        </p>
+                        <h5 onClick={()=> {assignPass(props.rideList.name)
+                                            disappearInfo()}}>
+                            Assign Driver 
+                            <div className="plusSign">+</div>
+                        </h5>
+                    </div>
                 )}     
         </React.Fragment>
         )

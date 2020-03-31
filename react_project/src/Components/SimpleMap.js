@@ -29,7 +29,7 @@ const SimpleMap = (props) => {
     const assignToDriver = (driverName) => {
         console.log("currentPassenger", currentPassenger)
         console.log("driverName", driverName)
-        // setDisplayNames(!displayNames)
+        setDisplayNames(!displayNames)
         for(let i= 0; i< props.assignDriver.length; i++){
             if(currentPassenger === props.assignDriver[i].passenger){
                 props.assignDriver.splice(i, 1)

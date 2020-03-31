@@ -31,10 +31,10 @@ const RideMarker = (props) => {
                             <span>{props.rideList.name}</span><br/>
                             {props.rideList.address}
                         </p>
-                        <h5 onClick={()=> assignPass(props.rideList.name)}>
+                        <div className="assignDriver" onClick={()=> assignPass(props.rideList.name)}>
                             Assign Driver 
                             <div className="plusSign">+</div>
-                        </h5>
+                        </div>
                     </div>
                 )}     
         </React.Fragment>

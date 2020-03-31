@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./CSS/SimpleMap.css"
 import DriverMarker from "./DriverMarker"
 import RideMarker from "./RideMarker"
 import DriverForm from "./DriverForm"

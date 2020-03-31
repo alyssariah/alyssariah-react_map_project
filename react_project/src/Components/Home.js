@@ -1,4 +1,5 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
+import "./CSS/Home.css"
 
 function Home(props){
     //setting state
@@ -11,6 +12,16 @@ function Home(props){
     const [showInfo, setShowInfo] = useState(false)
     const [displayDriverForm, setDisplayDriverForm] = useState(false)
     const [displayRideForm, setDisplayRideForm] = useState(false)
+
+    //useEffect
+    useEffect(()=>{
+        if(props.driverList.length===0){
+            setDisplayDriverForm(true)
+        }
+        if(props.rideList.length === 0){
+            setDisplayRideForm(true)
+        }
+    })
 
     //handleChange function to take in input 
     const handleDriverName =(e) => {
@@ -29,7 +40,6 @@ function Home(props){
     //change Address into coordinates and pass to SimpleMap
     const passDriverInformation = async(e) =>{
         e.preventDefault()
-        setDisplayDriverForm(false)
         let str = driverAddress.replace(/\s/g, '+');
         console.log("added with pluses", str)
         let res = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${str},+CA&key=AIzaSyDJ56l2Y_6K3vN5rH30aKddRVljnEsuR_Y`)
@@ -42,10 +52,10 @@ function Home(props){
             {driverName} has been added to your map!</div>)
         setDriverName("")
         setDriverAddress("")
+        setDisplayDriverForm(false)
     }
     const passRideInformation = async(e) =>{
         e.preventDefault()
-        setDisplayRideForm(false)
         let str = rideAddress.replace(/\s/g, '+');
         console.log("added with pluses", str)
         let res = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${str},+CA&key=AIzaSyDJ56l2Y_6K3vN5rH30aKddRVljnEsuR_Y`)
@@ -57,6 +67,7 @@ function Home(props){
             {rideName} has been added to your map!</div>)
         setRideName("")
         setRideAddress("")
+        setDisplayRideForm(false)
     }
     //making the driver List and ride List
     const makeDriverList = props.driverList.map((obj, index) => {

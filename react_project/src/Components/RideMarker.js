@@ -20,7 +20,9 @@ const RideMarker = (props) => {
             <div
                 className="rmarker"
                 style={{ cursor: 'pointer'}}
-                onClick={_onClick} />
+                onClick={_onClick}>
+                    <div className="circle"/>
+            </div>
             {/* Below is info window component */}
             {show && (
             <div className="infoRBox" onClick={disappearInfo}>

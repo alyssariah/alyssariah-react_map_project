@@ -12,6 +12,8 @@ function App() {
   const [rideList, setRideList] = useState([])
   const [rideCoordinates, setRideCoordinates] = useState([])
   const [assignDriver, setAssignDriver] = useState([])
+  const [displayNames, setDisplayNames] = useState(false)
+  const [selectDriver, setSelectDriver] = useState("")
 
   //retrieving name and address from home
   const passDriverInfo = (inputName, inputAdd, dLat, dLng) =>{
@@ -37,7 +39,11 @@ function App() {
                                                     driverList={driverList} 
                                                     rideList ={rideList}
                                                     assignToDriver={assignToDriver}
-                                                    assignDriver={assignDriver}/>}/>
+                                                    assignDriver={assignDriver}
+                                                    displayNames={displayNames}
+                                                    setDisplayNames={setDisplayNames}
+                                                    selectDriver={selectDriver}
+                                                    setSelectDriver={setSelectDriver}/>}/>
         <Route path="/list" render={()=> <List driverList={driverList} 
                                                rideList={rideList} 
                                                assignDriver={assignDriver}/>}/>

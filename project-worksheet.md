@@ -85,7 +85,7 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Form | H | 2hrs| 2hrs | -hrs |
 | InfoBar | H | 2hrs| 3hrs | 4hrs |
 | AssignPassengers | H | 4hrs| 6hrs | -hrs |
-| List | H | 2hrs| -hrs | -hrs |
+| List | H | 2hrs| 3hrs | -hrs |
 | Responsive| H | 4hrs| -hrs | -hrs |
 | Form to API | H | 4hrs| 2hrs | -hrs |
 | Marker Interative| H | 6hrs| -hrs | -hrs |

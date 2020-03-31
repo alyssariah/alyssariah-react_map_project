@@ -11,6 +11,7 @@ function App() {
   const [driverCoordinates, setDriverCoordinates] = useState([])
   const [rideList, setRideList] = useState([])
   const [rideCoordinates, setRideCoordinates] = useState([])
+  const [assignDriver, setAssignDriver] = useState([])
 
   //retrieving name and address from home
   const passDriverInfo = (inputName, inputAdd, dLat, dLng) =>{
@@ -22,6 +23,11 @@ function App() {
     setRideList([...rideList, {name: inputName, address: inputAdd}])
   }
 
+  //receiving information from maps to send to list
+  const assignToDriver = (driverName, currentPassengerName) => {
+    setAssignDriver([...assignDriver, {driver: driverName, passenger: currentPassengerName}])
+  }
+
   return (
     <div className="App">
       <Switch>
@@ -29,8 +35,12 @@ function App() {
         <Route path="/map"  render={()=> <SimpleMap driverCoordinates={driverCoordinates} 
                                                     rideCoordinates={rideCoordinates} 
                                                     driverList={driverList} 
-                                                    rideList ={rideList}/>}/>
-        <Route path="/list" render={()=> <List driverList={driverList} rideList={rideList} />}/>
+                                                    rideList ={rideList}
+                                                    assignToDriver={assignToDriver}
+                                                    assignDriver={assignDriver}/>}/>
+        <Route path="/list" render={()=> <List driverList={driverList} 
+                                               rideList={rideList} 
+                                               assignDriver={assignDriver}/>}/>
         <Redirect to="/"/>
       </Switch>
         <nav>

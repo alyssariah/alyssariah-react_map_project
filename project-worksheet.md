@@ -48,13 +48,13 @@ MVP List:
 - [x] InfoBar
 - [ ] Marker hover
 - [x] Marker Design
-- [ ] Assigning passengers to drivers on Maps
+- [x] Assigning passengers to drivers on Maps
 - [x] Navigation bar
 - [x] Form for input of addresses
 - [ ] Responsive
 - [ ] Make ListPage
 - [ ] Make HomePage
-- [ ] Pass information over to DriverList from Maps
+- [x] Pass information over to DriverList from Maps
 
 
 
@@ -83,7 +83,8 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Marker from Input | H | 4hrs| 2hrs | -hrs |
 | Navbar| H | 2hrs| 1hrs | -hrs |
 | Form | H | 2hrs| 2hrs | -hrs |
-| InfoBar | H | 2hrs| 3hrs | -hrs |
+| InfoBar | H | 2hrs| 3hrs | 4hrs |
+| AssignPassengers | H | 4hrs| 6hrs | -hrs |
 | List | H | 2hrs| -hrs | -hrs |
 | Responsive| H | 4hrs| -hrs | -hrs |
 | Form to API | H | 4hrs| 2hrs | -hrs |

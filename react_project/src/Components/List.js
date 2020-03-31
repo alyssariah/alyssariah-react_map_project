@@ -1,7 +1,8 @@
 import React from "react"
 
 function List(props){
-    console.log("List - driver Information", props.driverList)
+    
+    // making Driver List
     const makeDriverList = props.driverList.map((obj, index) => {
         return (
             <li key={index}>{obj.name} - {obj.address}</li>
@@ -12,6 +13,24 @@ function List(props){
             <li key={index}>{obj.name} - {obj.address}</li>
         )
     })
+    
+    const assignDriverList = props.driverList.map((obj, index) => {
+        const placePassenger = props.assignDriver.map((object, index) => {  
+            if(object.driver === obj.name){
+                return(
+                    <li>{object.passenger}</li>
+                )
+            }
+            })
+            return (
+                <>
+                <h4 className="listTitles" key={index}>{obj.name}</h4>
+                    <ul>
+                        {placePassenger}
+                    </ul>
+                </>
+            )
+    })
     return(
         <div className="information">
             <h2>List Page</h2>
@@ -19,10 +38,15 @@ function List(props){
             <ul>
                 {makeDriverList}
             </ul>
-            <h4 className="listTitles">Who needs a ride?</h4>
+            <h4 className="listTitles">Passengers:</h4>
             <ul>
                 {makeRideList}
             </ul>
+            <h4>Assign Passengers to Drivers</h4>
+            <div className="assign">
+                {assignDriverList}
+            </div>
+            
         </div>
 
     )

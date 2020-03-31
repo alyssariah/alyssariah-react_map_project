@@ -1,25 +1,43 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 
 const DriverMarker = (props) => {
+    //settin states
     const [show, setShow] = useState(false)
+   
+
+    //setting functions
     const _onClick = () => {
         setShow(!show)
+        }  
+    const disappearInfo = () => {
+            setShow(false)
+    }     
+    const assignPass = (name) => {
+        props.assignPass(name)
     }
     return (
        <React.Fragment>
-            <img
+           <div>
+                <img
                 className="dmarker"
                 src="https://storage.needpix.com/rsynced_images/icon-2070748_1280.png"
                 style={{ cursor: 'pointer'}}
-                onClick={_onClick} />
+                onClick={_onClick}
+                />
+             </div>   
             {/* Below is info window component */}
             {show && (
-            <div
-            className="infoDBox"
-                >{props.driverList.name}<br/>
-                {props.driverList.address}</div>
-                )}
+                <div
+                onMouseLeave = "disappearInfo"
+                className="infoDBox"
+                >
+                    <div className="exitInfo" onClick={disappearInfo}>x</div>
+                    <p><span>{props.driverList.name}</span><br/>
+                    {props.driverList.address}</p>
+                </div>
+                )}   
+
         </React.Fragment>
         )
   };

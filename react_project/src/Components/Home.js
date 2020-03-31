@@ -8,6 +8,7 @@ function Home(props){
     const [rideAddress, setRideAddress] = useState("")
     const [driverAlert, setDriverAlert] = useState("")
     const [alert, setAlert] = useState("")
+    const [show, setShow] = useState(false)
 
     //handleChange function to take in input 
     const handleDriverName =(e) => {
@@ -53,49 +54,54 @@ function Home(props){
     return(
         <div className="information">
            <h2>Home</h2>
-           <h3>Welcome to the App that helps you coordinate rides!</h3>
-           <h4>Instructions of how to use App</h4>
-            <ol>
-                <li>Enter information below one at a time for each person 
-                and they will be added to the map</li>
-                <li>After you submit, check out the map and list pages for drivers and who needs a ride!
-                </li>
-                <li>In the map page, assign those who need a ride to a driver</li>
-                <li>Go to list to see it those who need a ride assigned to their driver</li>
-            </ol>
-           <p className="alert">{driverAlert}</p>
+           <img onClick={()=>{setShow(!show)}}className="helpIcon" src="https://cdn1.iconfinder.com/data/icons/education-set-4/512/information-512.png"/>
+            {show && (<div className="instructions">
+                <ol>
+                <h4>Instructions: </h4>
+                    <li>Enter information below one at a time for each person 
+                    and they will be added to the map</li>
+                    <li>After you submit, check out the map and list pages for drivers and who needs a ride!
+                    </li>
+                    <li>In the map page, assign those who need a ride to a driver</li>
+                    <li>Go to list to see the assigned passengers to their driver</li>
+                </ol>
+            </div>)}
+           {/* <img className="importIcon" src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Font_Awesome_5_solid_file-import.svg"/> */}
+           <h3 className="welcome">A better way to coordinate rides!
+           </h3>
             <form className="homeForm" onSubmit={passDriverInformation}>
                 <h3>Driver Information</h3>
-                <input className="driverName"
+                <input className="formName"
                     type="text" 
-                    placeholder="Please insert driver name" 
+                    placeholder="Driver name" 
                     onChange={handleDriverName} 
                     value={driverName}
                     required="required"/>
-                <input className="driverAddress"
+                <input className="formAddress"
                     type="text" 
-                    placeholder="Please insert driver address" 
+                    placeholder="Driver address" 
                     onChange={handleDriverAddress} 
                     value={driverAddress}
                     required="required"/>
-                <button>Submit</button>    
+                <button>Submit</button> 
+                <p className="alert">{driverAlert}</p>   
             </form>
-            <p className="alert">{alert}</p>
             <form className="homeForm" onSubmit={passRideInformation}>
-                <h3>Who Needs a Ride Information</h3>
-                <input className="driverName"
+                <h3>Passenger Information</h3>
+                <input className="formName"
                     type="text" 
-                    placeholder="Please insert name" 
+                    placeholder="Passenger name" 
                     onChange={handleRideName} 
                     value={rideName}
                     required="required"/>
-                <input className="driverAddress"
+                <input className="formAddress"
                     type="text" 
-                    placeholder="Please insert address" 
+                    placeholder="Passenger address" 
                     onChange={handleRideAddress} 
                     value={rideAddress}
                     required="required"/>
-                <button>Submit</button>    
+                <button>Submit</button>
+                <p className="alert">{alert}</p>    
             </form>
 
         </div>

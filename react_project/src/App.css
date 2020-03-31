@@ -3,7 +3,6 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  /* margin: 10px 20px; */
 }
 *{
   box-sizing: border-box;
@@ -15,6 +14,49 @@
 }
 
 /* Home page CSS */
+h2 {
+  padding: 15px 20px;
+  margin: 0;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+.helpIcon {
+  width: 24px;
+  position: absolute;
+  top: 16px;
+  right: 20px;
+}
+.instructions {
+  height: 82.5vh;
+  position: absolute;
+  background-color:rgba(211,211,211, 0.8);
+  z-index: 4;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.instructions h4 {
+  margin: 5px 0;
+  font-size: 20px;
+}
+.instructions ol {
+  background-color: white;
+  margin: 0 10px;
+  border-radius: 10px;
+  padding-right: 15px;
+}
+.welcome {
+  height: 50vh;
+  background-image: url("https://storage.needpix.com/rsynced_images/navigation-2049643_1280.jpg");
+  background-position: center;
+  background-size: cover;
+  color: black;
+  margin: 0;
+  text-align: center;
+  padding: 30% 0;
+  font-size: 30px;
+}
 nav {
   position: absolute;
   bottom: 0;
@@ -34,15 +76,9 @@ nav a {
   text-align: center;
   flex: 1;
 }
-nav a:focus {
-  color: blue;
-}
 .logo{
   height: 18px;
   width: 15px;
-}
-h2 {
-  margin: 10px 20px;
 }
 ol {
   font-size: 16px;
@@ -54,14 +90,14 @@ ol li {
   
 }
 .homeForm {
-  margin: 0 5px;
-  border: 2px dotted gray;
+  margin: 10px;
+  border: 2px solid  rgba(0, 0, 0, 0.1);
 }
-.driverName {
+.formName {
   position: relative;
   height: 24px;
 }
-.driverAddress {
+.formAddress {
   position: relative;
   height: 24px;
 }
@@ -93,33 +129,24 @@ button {
   margin: 10px 20px;
 }
 .alert {
-  color: red;
-  font-size: 10px;
+  color: green;
+  font-size: 14px;
 }
 h3, h4 {
   text-align: left;
-  margin: 8px 25px;
+  margin: 10px 25px;
 }
+
+
 /* SimpleMap CSS */
 .dmarker {
   width: 26px;
-  height: 38px;
+  /* height: 38px; */
   /* background-color: red;
   border: 2px solid #fff; */
   border-radius: 100%;
   /* user-select: none; */
   transform: translate(-50%, -50%);
-}
-.pin {
-  border-radius: 50% 50% 50% 0;
-  border: 2px solid black;
-  width: 12px;
-  height: 18px;
-  transform: rotate(-45deg);
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-  background-color: red;
 }
 .rmarker{
   width: 18px;
@@ -129,30 +156,134 @@ h3, h4 {
   transform: rotate(-45deg);
   /* background-color: #1973E7; */
   background-color: red;
+  z-index: -1;
 }
 .infoRBox {
   background-color: white;
-  padding: 5px;
-  width: 110px;
-  height: 50px;
-  border-radius: 15px 15px 15px 0px;
+  padding: 5px 10px;
+  width: 130px;
+  border-radius: 5px;
   box-shadow: 2px 0px 2px lightGray;
-  transform: translate(10%, -130%);
-  margin: 0px;
+  transform: translate(-47%, 15%);
+  color: #A60D0D;
+  text-align: center;
+  z-index: 4;
+}
+.infoRBox:before {
+ content : " ";
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #fff;
+  position: absolute;
+  top: -8px;
+  left:60px;
 }
 .infoDBox {
   background-color: white;
-  padding: 5px;
-  width: 110px;
-  height: 50px;
-  border-radius: 15px 15px 15px 0px;
+  padding: 5px 10px;
+  width: 120px;
+  border-radius: 5px;
   box-shadow: 2px 0px 2px lightGray;
-  transform: translate(0%, -220%);
-  margin: 0px;
+  transform: translate(-50%, -30%);
+  color: #A60D0D;
+  /* text-align: center; */
+  z-index: 4;
 }
-.marker:hover {
+.infoDBox:before {
+  content : " ";
+   width: 0;
+   height: 0;
+   /* background-color: black; */
+   border-left: 10px solid transparent;
+   border-right: 10px solid transparent;
+   border-bottom: 10px solid #fff;
+   position: absolute;
+   top: -8px;
+   left:50px;
+ }
+p {
+  padding-top: 4px;
+  margin: 0;
+  text-align: center;
+}
+h5 {
+  font-size: 12px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0
+}
+span {
+  font-size: 14px;
+  display: inline;
+  font-weight: bold;
+}
+/* .marker:hover {
     z-index: 1;
-  }
+  } */
+.plusSign {
+  height: 20px;
+  width: 20px;
+  border: 2px solid  #A60D0D;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  padding: 0;
+  font-size: 12px;
+  margin-left: 5px;
+}
+.allDrivers {
+  position: absolute;
+  height: 92vh;
+  width: 100%;
+  background-color:rgba(211,211,211, 0.5);
+  /* transform: translate(-40%, -140%); */
+  color: #A60D0D;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.exit {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  color: #696969;
+  /* background-color: black; */
+  font-size: 40px;
+  padding: 20px;
+}
+.allDrivers ul {
+  width: 200px;
+  background-color: white;
+  box-shadow: 2px 2px 2px white;
+  /* border-radius: 15px; */
+}
+.allDrivers ul li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  /* border-bottom: 1px solid lightGray; */
+  align-items: center;
+}
+.allDrivers ul li:hover {
+  cursor: pointer;
+}
+.exitInfo {
+  color: gray;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 14px;
+  padding: 2px 6px 20px 10px;
+}
+
   /* List page CSS  */
 .listTitles {
   margin: 5px;
@@ -169,3 +300,10 @@ ul {
 ul li {
   padding: 0;
 }
+.assign {
+  /* font-size: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; */
+}
+

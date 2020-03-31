@@ -130,10 +130,23 @@ ol li {
 }
 .homeForm {
   margin: 10px;
-  border: 2px solid  rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(0, 0, 0, 0.1);
 }
-.homeForm p{
-  padding: 5px 0;
+
+.titleList {
+  display: flex;
+  justify-content: space-between
+}
+.titleList h3 {
+  padding-top: 5px;
+}
+.addPerson {
+  width: 25px;
+  height: 25px;
+  margin: 10px 15px;
+}
+.homeForm ul {
+  margin-left: 25px;
 }
 .formName {
   position: relative;
@@ -172,7 +185,7 @@ button {
   margin: 10px 20px;
 }
 .alert {
-  color:#66CC44;
+  color:#E17206;
   font-size: 14px;
 }
 .checkMark {

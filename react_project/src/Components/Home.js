@@ -8,7 +8,9 @@ function Home(props){
     const [rideAddress, setRideAddress] = useState("")
     const [driverAlert, setDriverAlert] = useState("")
     const [alert, setAlert] = useState("")
-    const [show, setShow] = useState(false)
+    const [showInfo, setShowInfo] = useState(false)
+    const [displayDriverForm, setDisplayDriverForm] = useState(false)
+    const [displayRideForm, setDisplayRideForm] = useState(false)
 
     //handleChange function to take in input 
     const handleDriverName =(e) => {
@@ -27,6 +29,7 @@ function Home(props){
     //change Address into coordinates and pass to SimpleMap
     const passDriverInformation = async(e) =>{
         e.preventDefault()
+        setDisplayDriverForm(false)
         let str = driverAddress.replace(/\s/g, '+');
         console.log("added with pluses", str)
         let res = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${str},+CA&key=AIzaSyDJ56l2Y_6K3vN5rH30aKddRVljnEsuR_Y`)
@@ -36,12 +39,13 @@ function Home(props){
         props.passDriverInfo(driverName, driverAddress, place.lat, place.lng)
         setDriverAlert(<div>
             <img className="checkMark" src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Light_green_check.svg"/>
-            {driverName} has been added to your driver list!</div>)
+            {driverName} has been added to your map!</div>)
         setDriverName("")
         setDriverAddress("")
     }
     const passRideInformation = async(e) =>{
         e.preventDefault()
+        setDisplayRideForm(false)
         let str = rideAddress.replace(/\s/g, '+');
         console.log("added with pluses", str)
         let res = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${str},+CA&key=AIzaSyDJ56l2Y_6K3vN5rH30aKddRVljnEsuR_Y`)
@@ -50,18 +54,29 @@ function Home(props){
         props.passRideInfo(rideName, rideAddress, place.lat, place.lng)
         setAlert(<div>
             <img className="checkMark" src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Light_green_check.svg"/>
-            {rideName} has been added to your passenger list!</div>)
+            {rideName} has been added to your map!</div>)
         setRideName("")
         setRideAddress("")
     }
+    //making the driver List and ride List
+    const makeDriverList = props.driverList.map((obj, index) => {
+        return (
+            <li key={index}>{obj.name} - {obj.address}</li>
+        )
+    })
+    const makeRideList = props.rideList.map((obj, index) => {
+        return (
+            <li key={index}>{obj.name} - {obj.address}</li>
+        )
+    })
 
     return(
         <div className="information">
             <header>
                 <h2>Carpool <span>coordinator</span></h2>
-                <img onClick={()=>{setShow(!show)}}className="helpIcon" src="https://cdn1.iconfinder.com/data/icons/education-set-4/512/information-512.png"/>
+                <img onClick={()=>{setShowInfo(!showInfo)}}className="helpIcon" src="https://cdn1.iconfinder.com/data/icons/education-set-4/512/information-512.png"/>
             </header>    
-            {show && (<div className="instructions">
+            {showInfo && (<div className="instructions">
                 <ol>
                 <h4>Instructions: </h4>
                     <li>Enter information below one at a time for each person 
@@ -76,27 +91,39 @@ function Home(props){
            <div className="welcome">
                <h4>A better way to coordinate rides!</h4>
            </div>
-            <form className="homeForm" onSubmit={passDriverInformation}>
-                <h3>Driver Information</h3>
-                <input className="formName"
-                    type="text" 
-                    placeholder="Driver name" 
-                    onChange={handleDriverName} 
-                    value={driverName}
-                    required="required"/>
-                <input className="formAddress"
-                    type="text" 
-                    placeholder="Driver address" 
-                    onChange={handleDriverAddress} 
-                    value={driverAddress}
-                    required="required"/>
-                <button>Add to Map</button> 
-                <p className="alert">
-                    {driverAlert}
-                </p>   
-            </form>
-            <form className="homeForm" onSubmit={passRideInformation}>
-                <h3>Passenger Information</h3>
+            <div className="homeForm">
+                <div className="titleList">
+                    <h3>Driver List</h3>
+                    <img className="addPerson" onClick={()=>setDisplayDriverForm(!displayDriverForm)}src="https://storage.needpix.com/rsynced_images/user-2493635_1280.png"/>
+                </div>
+                {displayDriverForm && (<form onSubmit={passDriverInformation}>
+                    {/* <h3>Driver Information</h3> */}
+                    <input className="formName"
+                        type="text" 
+                        placeholder="Driver name" 
+                        onChange={handleDriverName} 
+                        value={driverName}
+                        required="required"/>
+                    <input className="formAddress"
+                        type="text" 
+                        placeholder="Driver address" 
+                        onChange={handleDriverAddress} 
+                        value={driverAddress}
+                        required="required"/>
+                    <button>Add</button>   
+                </form>)}    
+                <ul>
+                    {makeDriverList}
+                </ul>
+                <p className="alert">{driverAlert}</p> 
+            </div>
+            <div className="homeForm">
+                <div className="titleList">
+                    <h3>Passenger List</h3>
+                    <img className="addPerson" onClick={()=>setDisplayRideForm(!displayRideForm)} src="https://storage.needpix.com/rsynced_images/user-2493635_1280.png"/>
+                </div>   
+                {displayRideForm && (<form onSubmit={passRideInformation}>
+                {/* <h3>Passenger Information</h3> */}
                 <input className="formName"
                     type="text" 
                     placeholder="Passenger name" 
@@ -109,10 +136,13 @@ function Home(props){
                     onChange={handleRideAddress} 
                     value={rideAddress}
                     required="required"/>
-                <button>Add to Map</button>
-                <p className="alert">{alert}</p>    
-            </form>
-
+                <button>Add</button>  
+            </form>)} 
+                <ul>
+                    {makeRideList}
+                </ul>
+                <p className="alert">{alert}</p>  
+            </div>
         </div>
     )
 }

@@ -38,18 +38,8 @@ function List(props){
             </header>
             <div className="list">
             <div className="overlay">
-                <div className="fullList">
-                    <h3 className="listTitles">Drivers:</h3>
-                    <ul>
-                        {makeDriverList}
-                    </ul>
-                    <h3 className="listTitles">Passengers:</h3>
-                    <ul>
-                        {makeRideList}
-                    </ul>
-                </div>
                 <div className="assignWithTitle">
-                    <h3>Assigned Passengers to Drivers:</h3>
+                    <h3>Assigned to Drivers:</h3>
                     <div className="assign">
                         {assignDriverList}
                     </div>

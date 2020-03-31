@@ -14,6 +14,8 @@ const SimpleMap = (props) => {
     const [driverAddress, setDriverAddress] = useState([])
     const [rideAddress, setRideAddress] = useState([{}])
     const [currentPassenger, setCurrentPassenger] = useState("")
+    const [displayNames, setDisplayNames] = useState(false)
+    const [selectDriver, setSelectDriver] = useState("")
 
     const getMapOptions = () => {
       return {
@@ -28,7 +30,7 @@ const SimpleMap = (props) => {
     const assignToDriver = (driverName) => {
         console.log("currentPassenger", currentPassenger)
         console.log("driverName", driverName)
-        props.setDisplayNames(!props.displayNames)
+        setDisplayNames(!displayNames)
         for(let i= 0; i< props.assignDriver.length; i++){
             if(currentPassenger === props.assignDriver[i].passenger){
                 props.assignDriver.splice(i, 1)
@@ -37,7 +39,7 @@ const SimpleMap = (props) => {
         props.assignToDriver(driverName, currentPassenger)
     }
     const unassignDriver = () => {
-        props.setDisplayNames(!props.displayNames)
+        setDisplayNames(!displayNames)
         for(let i= 0; i< props.assignDriver.length; i++){
             if(currentPassenger === props.assignDriver[i].passenger){
                 props.assignDriver.splice(i, 1)
@@ -48,14 +50,13 @@ const SimpleMap = (props) => {
      const assignPass = (passengerName) => {
         for(let i= 0; i< props.assignDriver.length; i++){
             if(passengerName === props.assignDriver[i].passenger){
-                props.setSelectDriver(props.assignDriver[i].driver)
+                setSelectDriver(props.assignDriver[i].driver)
                 console.log("new select driver")
             }
         } 
-        console.log("select driver", props.selectDriver)
         console.log("passengerName", passengerName)
         setCurrentPassenger(passengerName)
-        props.setDisplayNames(!props.displayNames)
+        setDisplayNames(!props.displayNames)
     }
 
     const showAllDrivers = props.driverList.map((object, index) => {
@@ -65,8 +66,8 @@ const SimpleMap = (props) => {
                   assignToDriver={assignToDriver} 
                   unassignDriver={unassignDriver}
                   assignDriver = {props.assignDriver}
-                  selectDriver={props.selectDriver}
-                  setSelectDriver={props.setSelectDriver}/>    
+                  selectDriver={selectDriver}
+                  setSelectDriver={setSelectDriver}/>    
         )
     })
 
@@ -138,9 +139,9 @@ const SimpleMap = (props) => {
     // }) 
     return (
         <div className="information">
-            {props.displayNames && (
+            {displayNames && (
                 <div className="allDrivers">
-                    <div className="exit" onClick={()=>{props.setDisplayNames(!props.displayNames)}}>X</div>
+                    <div className="exit" onClick={()=>{setDisplayNames(!displayNames)}}>X</div>
                     <ul>
                         {showAllDrivers}
                     </ul>

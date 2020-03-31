@@ -12,8 +12,6 @@ function App() {
   const [rideList, setRideList] = useState([])
   const [rideCoordinates, setRideCoordinates] = useState([])
   const [assignDriver, setAssignDriver] = useState([])
-  const [displayNames, setDisplayNames] = useState(false)
-  const [selectDriver, setSelectDriver] = useState("")
 
   //retrieving name and address from home
   const passDriverInfo = (inputName, inputAdd, dLat, dLng) =>{
@@ -33,17 +31,16 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/" render={()=> <Home passDriverInfo={passDriverInfo} passRideInfo={passRideInfo} />}/>
+        <Route exact path="/" render={()=> <Home passDriverInfo={passDriverInfo} 
+                                                 passRideInfo={passRideInfo} 
+                                                 driverList={driverList}
+                                                 rideList={rideList}/>}/>
         <Route path="/map"  render={()=> <SimpleMap driverCoordinates={driverCoordinates} 
                                                     rideCoordinates={rideCoordinates} 
                                                     driverList={driverList} 
                                                     rideList ={rideList}
                                                     assignToDriver={assignToDriver}
-                                                    assignDriver={assignDriver}
-                                                    displayNames={displayNames}
-                                                    setDisplayNames={setDisplayNames}
-                                                    selectDriver={selectDriver}
-                                                    setSelectDriver={setSelectDriver}/>}/>
+                                                    assignDriver={assignDriver}/>}/>
         <Route path="/list" render={()=> <List driverList={driverList} 
                                                rideList={rideList} 
                                                assignDriver={assignDriver}/>}/>

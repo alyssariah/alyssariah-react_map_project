@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 .App {
   text-align: left;
   display: flex;
   flex-direction: column;
   height: 100vh;
+  font-family: 'Questrial', sans-serif;
 }
 *{
   box-sizing: border-box;
@@ -19,6 +21,10 @@ h2 {
   margin: 0;
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
 }
+h2 span {
+  font-size: 16px;
+  color: #A8D2A9;
+}
 .helpIcon {
   width: 24px;
   position: absolute;
@@ -28,7 +34,7 @@ h2 {
 .instructions {
   height: 82.5vh;
   position: absolute;
-  background-color:rgba(211,211,211, 0.8);
+  background-color:rgba(211,211,211, 0.7);
   z-index: 4;
   color: black;
   display: flex;
@@ -48,14 +54,21 @@ h2 {
 }
 .welcome {
   height: 50vh;
-  background-image: url("https://storage.needpix.com/rsynced_images/navigation-2049643_1280.jpg");
+  background-image: url("https://image.freepik.com/free-psd/high-resolution-google-map-psd_60-705.jpg");
   background-position: center;
   background-size: cover;
   color: black;
   margin: 0;
   text-align: center;
-  padding: 30% 0;
-  font-size: 30px;
+  font-size: 28px;
+}
+.welcome h4 {
+  padding: 0 20px;
+  margin: 0;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  background-color: rgba(255,255,255,0.5)
 }
 nav {
   position: absolute;
@@ -93,6 +106,9 @@ ol li {
   margin: 10px;
   border: 2px solid  rgba(0, 0, 0, 0.1);
 }
+.homeForm p{
+  padding: 5px 0;
+}
 .formName {
   position: relative;
   height: 24px;
@@ -129,10 +145,14 @@ button {
   margin: 10px 20px;
 }
 .alert {
-  color: green;
+  color: #A8D2A9;
   font-size: 14px;
 }
-h3, h4 {
+.checkMark {
+  width: 12px;
+  display: inline;
+}
+h3  {
   text-align: left;
   margin: 10px 25px;
 }

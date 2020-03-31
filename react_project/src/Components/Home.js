@@ -34,7 +34,9 @@ function Home(props){
         let place = json.results[0].geometry.location
         console.log("place", place)
         props.passDriverInfo(driverName, driverAddress, place.lat, place.lng)
-        setDriverAlert(driverName + " has been added to your driver list")
+        setDriverAlert(<div>
+            <img className="checkMark" src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Light_green_check.svg"/>
+            {driverName} has been added to your driver list!</div>)
         setDriverName("")
         setDriverAddress("")
     }
@@ -46,14 +48,16 @@ function Home(props){
         let json = await res.json();
         let place = json.results[0].geometry.location
         props.passRideInfo(rideName, rideAddress, place.lat, place.lng)
-        setAlert(rideName + " has been added to your ride list")
+        setAlert(<div>
+            <img className="checkMark" src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Light_green_check.svg"/>
+            {rideName} has been added to your passenger list!</div>)
         setRideName("")
         setRideAddress("")
     }
 
     return(
         <div className="information">
-           <h2>Home</h2>
+           <h2>Carpool <span>coordination</span></h2>
            <img onClick={()=>{setShow(!show)}}className="helpIcon" src="https://cdn1.iconfinder.com/data/icons/education-set-4/512/information-512.png"/>
             {show && (<div className="instructions">
                 <ol>
@@ -67,8 +71,9 @@ function Home(props){
                 </ol>
             </div>)}
            {/* <img className="importIcon" src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Font_Awesome_5_solid_file-import.svg"/> */}
-           <h3 className="welcome">A better way to coordinate rides!
-           </h3>
+           <div className="welcome">
+               <h4>A better way to coordinate rides!</h4>
+           </div>
             <form className="homeForm" onSubmit={passDriverInformation}>
                 <h3>Driver Information</h3>
                 <input className="formName"
@@ -84,7 +89,9 @@ function Home(props){
                     value={driverAddress}
                     required="required"/>
                 <button>Submit</button> 
-                <p className="alert">{driverAlert}</p>   
+                <p className="alert">
+                    {driverAlert}
+                </p>   
             </form>
             <form className="homeForm" onSubmit={passRideInformation}>
                 <h3>Passenger Information</h3>

@@ -196,4 +196,30 @@
       width: 8px;
       height: 8px;
     }
+    .infoRBox, .infoDBox {
+      width: 150px;
+    }
+    .infoRBox:before {
+      left: 70px;
+    }
+    .infoDBox:before {
+      left: 65px;
+    }
+    p, h5 {
+      font-size: 14px;
+    }
+    span {
+      font-size: 16px;
+    }
+    .allDrivers ul {
+      width: 280px;
+    }
+    .allDrivers ul li {
+      font-size: 24px;
+    }
+    .plusSign {
+      width: 28px;
+      height: 28px;
+      font-size: 14px;
+    }
   }

@@ -1,25 +1,30 @@
 /* Home page CSS */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
   position: absolute;
   background-color: white;
+  padding: 15px 20px;
   width: 100%;
   height: 8vh;
+  display: flex;
+  align-items: center;
 }
 h2 {
-  padding: 15px 20px;
+  height: auto;
+  padding: 0;
   margin: 0;
+  font-size: 26px;
 }
 h2 span {
-  font-size: 16px;
+  font-size: 18px;
   color: #A8D2A9;
 }
 .helpIcon {
+  position: absolute;
   width: 24px;
   margin-right: 15px;
+  top: 16px;
+  right: 5px;
 }
 .instructions {
   margin-top: 8vh;
@@ -186,16 +191,20 @@ h3  {
   text-align: left;
   margin: 10px 25px;
 }
+footer {
+  display: none;
+}
 @media (min-width: 768px){
   .information {
     height: 100vh;
   }
   header {
     width: 60%;
-    border: none;
+    padding: 20px 25px;
   }
   h2 {
-    font-size: 36px;
+    height: 8vh;
+    font-size: 34px;
   }
   h2 span {
     font-size: 24px;
@@ -212,7 +221,8 @@ h3  {
     height: 8vh;
     box-shadow: none;
     border: none;
-
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    padding-right: 20px;
   }
   .logo {
     display: none;
@@ -220,8 +230,15 @@ h3  {
   nav a {
     font-size: 24px;
     padding-bottom: 24px;
+    text-align: center;
+    /* color: #E47B06; */
+    color: #A8D2A9;
+  }
+  .welcome {
+    height: 60vh;
   }
   .welcome h4 {
+    height: 60vh;
     font-size: 44px;
   }
   .homeForm {
@@ -238,7 +255,6 @@ h3  {
     width: 80%;
     height: 32px;
     font-size: 18px;
-
   }
   .formAddress {
     width: 80%;
@@ -249,7 +265,35 @@ h3  {
     height: 32px;
     font-size: 18px;
   }
+  .homeForm ul {
+    font-size: 20px;
+  }
+  .alert {
+    font-size: 16px;
+  }
   .allLists {
     display: flex;
+  }
+  footer {
+    display: block;
+    margin-top: 190px;
+    padding: 20px;
+    font-size: 18px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+  }
+}
+@media (min-width: 1024px){
+  header {
+    padding: 15px 20px;
+  }
+  .welcome{
+    height: 90vh;
+  }
+  .welcome h4 {
+    height: 90vh;
+    font-size: 60px;
+
   }
 }

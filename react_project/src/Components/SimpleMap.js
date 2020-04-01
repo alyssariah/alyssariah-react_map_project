@@ -93,7 +93,7 @@ const SimpleMap = (props) => {
                                 key={index} 
                                 rideList={props.rideList[index]}
                                 assignPass={assignPass}
-                                />
+                                assignDriver={props.assignDriver}/>
                 )
             }  
         })

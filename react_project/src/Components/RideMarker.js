@@ -3,10 +3,17 @@ import React, {useState} from 'react';
 
 const RideMarker = (props) => {
     const [show, setShow] = useState(false)
+    const [assigned, setAssigned] = useState(false)
 
-    //function 
+    //function for clicks
     const _onClick = () => {
         setShow(!show)
+        props.assignDriver.forEach((object, index) => {
+            console.log("Am I assigned?", object)
+                if(props.rideList.name === object.passenger){
+                  setAssigned(true)
+                }
+                })
     }
     const disappearInfo = () => {
         setShow(false)
@@ -14,6 +21,15 @@ const RideMarker = (props) => {
     const assignPass = (name) => {
         props.assignPass(name);
     }
+    //function to display right assign driver
+    const displayAssignedDriver = props.assignDriver.map((object, index) => {
+        console.log("Am I assigned?", object)
+            if(props.rideList.name === object.passenger){
+                return (
+                    <>{object.driver}</>
+                )
+            }
+            })    
 
     return (
        <React.Fragment>
@@ -31,8 +47,9 @@ const RideMarker = (props) => {
                             <span>{props.rideList.name}</span><br/>
                             {props.rideList.address}
                         </p>
+                        <hr />
                         <div className="assignDriver" onClick={()=> assignPass(props.rideList.name)}>
-                            Assign Driver 
+                            <h5>Assigned Driver: { !assigned ? <h5>Unassigned</h5> : displayAssignedDriver}</h5>
                             <div className="plusSign">+</div>
                         </div>
                     </div>

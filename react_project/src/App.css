@@ -1,12 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 .App {
   text-align: left;
-  display: flex;
-  flex-direction: column;
   height: 100vh;
   font-family: 'Questrial', sans-serif;
 }
-*{
+* {
   box-sizing: border-box;
 }
 .information, .mapInformation {

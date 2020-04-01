@@ -1,6 +1,6 @@
 /* SimpleMap CSS */
-  .mapHeader {
-    display: none;
+  .mapInformation Header {
+    visibility: hidden;
   }
   .dmarker {
     width: 26px;
@@ -174,8 +174,8 @@
     padding: 0 6px;
   }
   @media (min-width: 768px){
-    .mapHeader {
-      display: flex;
+    .mapInformation Header {
+      visibility: visible;
       z-index: 1;
       position: absolute;
       top: 0;

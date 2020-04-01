@@ -113,8 +113,13 @@ const SimpleMap = (props) => {
     // }) 
     return (
         <div className="mapInformation">
-            <header className="mapHeader">
+            <header>
                 <h2>Carpool <span>coordinator</span></h2>
+                  <div className="nav">
+                    <Link to="/"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Home_icon_black.png"/><br/>Home</Link>
+                    <Link to="/map"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Map_pin_icon.svg"/><br/>Map</Link>
+                    <Link to="/list"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/4/43/Noun_project_list_icon_1380018_cc.svg"/><br/>Assign</Link>
+                </div>
             </header> 
             <nav>
                 <Link to="/"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Home_icon_black.png"/><br/>Home</Link>

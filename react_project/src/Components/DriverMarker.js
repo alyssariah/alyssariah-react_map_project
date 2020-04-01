@@ -9,13 +9,11 @@ const DriverMarker = (props) => {
     //setting functions
     const _onClick = () => {
         setShow(!show)
-        }  
+    }  
     const disappearInfo = () => {
-            setShow(false)
+        setShow(false)
     }     
-    const assignPass = (name) => {
-        props.assignPass(name)
-    }
+    
     return (
        <React.Fragment>
            <div>

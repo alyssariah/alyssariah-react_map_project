@@ -172,6 +172,7 @@ header {
   .alert {
     color:#E17206;
     font-size: 14px;
+    text-align: center;
   }
   .checkMark {
     width: 12px;

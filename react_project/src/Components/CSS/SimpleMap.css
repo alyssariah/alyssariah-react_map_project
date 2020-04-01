@@ -21,6 +21,19 @@
     justify-content: center;
     align-items: center;
   }
+  .rmarkerAssign {
+    width: 18px;
+    height: 18px;
+    border: 2px solid white;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    /* background-color: #1973E7; */
+    background-color: blue;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .circle {
     margin-right: 1px;
     width: 6px;
@@ -34,7 +47,7 @@
     width: 130px;
     border-radius: 5px;
     box-shadow: 2px 0px 2px lightGray;
-    transform: translate(-45%, 15%);
+    transform: translate(-46%, 17%);
     color: black;
     text-align: left;
     z-index: 4;
@@ -97,18 +110,17 @@
   .assignDriver {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
   }
   .plusSign {
-    height: 18px;
-    width: 18px;
+    height: 20px;
+    width: 20px;
     border: 2px solid black;
     border-radius: 100%;
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     font-size: 12px;
-
   }
   .allDrivers {
     position: absolute;

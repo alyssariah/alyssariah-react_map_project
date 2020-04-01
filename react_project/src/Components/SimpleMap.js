@@ -4,7 +4,7 @@ import DriverMarker from "./DriverMarker"
 import RideMarker from "./RideMarker"
 import DriverForm from "./DriverForm"
 import RideForm from "./RideForm"
-import Plus from "./Plus"
+import ShowDrivers from "./ShowDrivers"
 import GoogleMapReact from 'google-map-react';
 
 
@@ -16,7 +16,6 @@ const SimpleMap = (props) => {
     const [rideAddress, setRideAddress] = useState([{}])
     const [currentPassenger, setCurrentPassenger] = useState("")
     const [displayNames, setDisplayNames] = useState(false)
-    const [selectDriver, setSelectDriver] = useState("")
 
     const getMapOptions = () => {
       return {
@@ -27,73 +26,48 @@ const SimpleMap = (props) => {
       };
     };
     
-    //assign to driver function
-    const assignToDriver = (driverName) => {
-        console.log("currentPassenger", currentPassenger)
-        console.log("driverName", driverName)
+    //assign page to reset
+    const resetPage = (driverName) => {
         setDisplayNames(!displayNames)
-        for(let i= 0; i< props.assignDriver.length; i++){
-            if(currentPassenger === props.assignDriver[i].passenger){
-                props.assignDriver.splice(i, 1)
-            }
-        } 
-        props.assignToDriver(driverName, currentPassenger)
+
     }
-    const unassignDriver = () => {
-        setDisplayNames(!displayNames)
-        for(let i= 0; i< props.assignDriver.length; i++){
-            if(currentPassenger === props.assignDriver[i].passenger){
-                props.assignDriver.splice(i, 1)
-            }
-        } 
-    }
+ 
     //make showAllDrivers div and function
-     const assignPass = (passengerName) => {
-        for(let i= 0; i< props.assignDriver.length; i++){
-            if(passengerName === props.assignDriver[i].passenger){
-                setSelectDriver(props.assignDriver[i].driver)
-                console.log("new select driver")
-            }
-        } 
-        console.log("passengerName", passengerName)
-        setCurrentPassenger(passengerName)
+     const assignPass = (passenger) => {
+        setCurrentPassenger(passenger)
         setDisplayNames(!props.displayNames)
     }
 
     const showAllDrivers = props.driverList.map((object, index) => {
 
         return(
-            <Plus object={object} 
-                  assignToDriver={assignToDriver} 
-                  unassignDriver={unassignDriver}
-                  assignDriver = {props.assignDriver}
-                  selectDriver={selectDriver}
-                  setSelectDriver={setSelectDriver}/>    
+            <ShowDrivers object={object} 
+                         resetPage={resetPage}
+                         rideList={props.rideList}
+                         currentPassenger = {currentPassenger}/>    
         )
     })
 
      
     //Pull in addresses from home and transfer into coordinates
-    const pullDriverData = props.driverCoordinates.map((object, index)=> {
-        if(props.driverCoordinates.length >0){
+    const pullDriverData = props.driverList.map((object, index)=> {
+        if(props.driverList.length >0){
             return (
                  <DriverMarker lat={object.lat} 
                                lng={object.lng} 
                                key={index} 
-                               driverList={props.driverList[index]}
-                               />
+                               driverList={object}/>
                 )
             }   
         })
-    const pullRideData = props.rideCoordinates.map((object, index)=> {
-        if(props.rideCoordinates.length >0){
+    const pullRideData = props.rideList.map((object, index)=> {
+        if(props.rideList.length >0){
             return (
                     <RideMarker lat={object.lat} 
                                 lng={object.lng} 
                                 key={index} 
-                                rideList={props.rideList[index]}
-                                assignPass={assignPass}
-                                assignDriver={props.assignDriver}/>
+                                rideList={object}
+                                assignPass={assignPass}/>
                 )
             }  
         })

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "./CSS/SimpleMap.css"
+import {Link} from "react-router-dom"
 import DriverMarker from "./DriverMarker"
 import RideMarker from "./RideMarker"
 import DriverForm from "./DriverForm"
@@ -29,17 +30,15 @@ const SimpleMap = (props) => {
     //assign page to reset
     const resetPage = (driverName) => {
         setDisplayNames(!displayNames)
-
     }
  
-    //make showAllDrivers div and function
+    //showAllDrivers div and function
      const assignPass = (passenger) => {
         setCurrentPassenger(passenger)
         setDisplayNames(!props.displayNames)
     }
 
     const showAllDrivers = props.driverList.map((object, index) => {
-
         return(
             <ShowDrivers object={object} 
                          resetPage={resetPage}
@@ -113,7 +112,15 @@ const SimpleMap = (props) => {
     //     }
     // }) 
     return (
-        <div className="information">
+        <div className="mapInformation">
+            <header className="mapHeader">
+                <h2>Carpool <span>coordinator</span></h2>
+            </header> 
+            <nav>
+                <Link to="/"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Home_icon_black.png"/><br/>Home</Link>
+                <Link to="/map"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Map_pin_icon.svg"/><br/>Map</Link>
+                <Link to="/list"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/4/43/Noun_project_list_icon_1380018_cc.svg"/><br/>List</Link>
+            </nav>
             {displayNames && (
                 <div className="allDrivers">
                     <div className="exit" onClick={()=>{setDisplayNames(!displayNames)}}>X</div>

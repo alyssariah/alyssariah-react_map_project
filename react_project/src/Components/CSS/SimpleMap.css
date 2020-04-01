@@ -1,4 +1,7 @@
 /* SimpleMap CSS */
+  .mapHeader {
+    display: none;
+  }
   .dmarker {
     width: 26px;
     /* height: 38px; */
@@ -169,4 +172,28 @@
     top: 0;
     font-size: 16px;
     padding: 0 6px;
+  }
+  @media (min-width: 768px){
+    .mapHeader {
+      display: flex;
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    }
+    .mapInformation{
+      height: 100vh;
+      margin-top: 8vh;
+    }
+    .dmarker {
+      width: 32px;
+    }
+    .rmarker, .rmarkerAssign {
+      width: 22px;
+      height: 22px;
+    }
+    .circle {
+      width: 8px;
+      height: 8px;
+    }
   }

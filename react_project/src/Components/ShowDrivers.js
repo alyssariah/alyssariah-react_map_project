@@ -30,12 +30,12 @@ function ShowDrivers(props){
     }
     return(
         <a onClick={_onClick}>
-        <li className="currentDriver"> 
-            {props.object.name} 
-            <div className="plusSign">  
+            <li className="currentDriver"> 
+                {props.object.name} 
+                <div className="plusSign">  
                 {plusStatus ? "+": "-"}
-            </div>
-        </li>
+                </div>
+            </li>
         </a>
      
     )

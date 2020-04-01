@@ -9,10 +9,11 @@
 *{
   box-sizing: border-box;
 }
-.information {
+.information, .mapInformation {
   height: 92vh;
   width: 100%;
   overflow: scroll;
 }
+
 
 

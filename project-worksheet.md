@@ -89,7 +89,7 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | List | H | 2hrs| 3hrs | -hrs |
 | Responsive| H | 4hrs| -hrs | -hrs |
 | Form to API | H | 4hrs| 2hrs | -hrs |
-| Marker Interative| H | 6hrs| -hrs | -hrs |
+| Marker Interative| H | 6hrs| 2hrs | -hrs |
 | Form to DriverList | H | 4hrs| 2hrs | -hrs |
 | Form to Map| H | 4hrs| 3hrs | -hrs |
 | Driver Routes | L | 4hrs| -hrs | -hrs |

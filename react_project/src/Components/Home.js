@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react"
+import {Link} from "react-router-dom"
 import "./CSS/Home.css"
 
 function Home(props){
@@ -86,7 +87,12 @@ function Home(props){
             <header>
                 <h2>Carpool <span>coordinator</span></h2>
                 <img onClick={()=>{setShowInfo(!showInfo)}}className="helpIcon" src="https://cdn1.iconfinder.com/data/icons/education-set-4/512/information-512.png"/>
-            </header>    
+            </header> 
+            <nav>
+                <Link to="/"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Home_icon_black.png"/><br/>Home</Link>
+                <Link to="/map"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Map_pin_icon.svg"/><br/>Map</Link>
+                <Link to="/list"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/4/43/Noun_project_list_icon_1380018_cc.svg"/><br/>List</Link>
+            </nav>   
             {showInfo && (<div className="instructions">
                 <ol>
                 <h4>Instructions: </h4>
@@ -102,6 +108,7 @@ function Home(props){
            <div className="welcome">
                <h4>A better way to coordinate rides!</h4>
            </div>
+           <div className="allLists">
             <div className="homeForm">
                 <div className="titleList">
                     <h3>Driver List</h3>
@@ -148,11 +155,12 @@ function Home(props){
                     value={rideAddress}
                     required="required"/>
                 <button>Add</button>  
-            </form>)} 
+                </form>)} 
                 <ul>
                     {makeRideList}
                 </ul>
                 <p className="alert">{alert}</p>  
+            </div>
             </div>
         </div>
     )

@@ -10,16 +10,7 @@ const RideMarker = (props) => {
     }
     const disappearInfo = () => {
         setShow(false)
-    }
-
-    //function to display right assign driver
-    // const displayAssignedDriver = props.assignDriver.map((object, index) => {
-    //         if(props.rideList.name === object.passenger){
-    //             return (
-    //                 <>{object.driver}</>
-    //             )
-    //         }
-    //         })    
+    }  
 
     return (
        <React.Fragment>

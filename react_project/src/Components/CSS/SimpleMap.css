@@ -174,16 +174,8 @@
     padding: 0 6px;
   }
   @media (min-width: 768px){
-    .mapInformation Header {
-      visibility: visible;
-      z-index: 1;
-      position: absolute;
-      top: 0;
-      border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-    }
     .mapInformation{
-      height: 100vh;
-      margin-top: 8vh;
+      height: 92vh;
     }
     .dmarker {
       width: 32px;
@@ -222,4 +214,14 @@
       height: 28px;
       font-size: 14px;
     }
+  }
+  @media (min-width: 1024px){
+    .mapInformation {
+      height: 100vh;
+    }
+    .nav {
+      display: flex;
+      z-index: 1;
+    }
+
   }

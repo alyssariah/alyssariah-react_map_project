@@ -11,7 +11,8 @@ import GoogleMapReact from 'google-map-react';
 
 const SimpleMap = (props) => {
     //setting state
-    const [centerC, setCenter] = useState({lat: 37.4275, lng: -122.1697});
+    const [center, setCenter] = useState({lat: 37.4275, lng: -122.169});
+    // const [centerC, setCenterC] = useState({props.driverList[0].lat, props.driverList[0].lng})
     const [zoom, setZoom] = useState(11);
     const [driverAddress, setDriverAddress] = useState([])
     const [rideAddress, setRideAddress] = useState([{}])
@@ -115,12 +116,12 @@ const SimpleMap = (props) => {
         <div className="mapInformation">
             <header>
                 <h2>Carpool <span>coordinator</span></h2>
-                  <div className="nav">
-                    <Link to="/"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Home_icon_black.png"/><br/>Home</Link>
-                    <Link to="/map"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Map_pin_icon.svg"/><br/>Map</Link>
-                    <Link to="/list"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/4/43/Noun_project_list_icon_1380018_cc.svg"/><br/>Assign</Link>
-                </div>
             </header> 
+            <div className="nav">
+                <Link to="/"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Home_icon_black.png"/></Link>
+                <Link to="/map"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Map_pin_icon.svg"/></Link>
+                <Link to="/list"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/4/43/Noun_project_list_icon_1380018_cc.svg"/></Link>
+            </div> 
             <nav>
                 <Link to="/"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Home_icon_black.png"/><br/>Home</Link>
                 <Link to="/map"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Map_pin_icon.svg"/><br/>Map</Link>
@@ -139,7 +140,7 @@ const SimpleMap = (props) => {
             {/* <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Ancient_Egypt_map-en.svg" style={{ height: `92vh`, width: '100%' }}></img> */}
             <GoogleMapReact
             bootstrapURLKeys={{ key:'AIzaSyDJ56l2Y_6K3vN5rH30aKddRVljnEsuR_Y' }}
-            center= {centerC}
+            defaultCenter= {center}
             defaultZoom={zoom}
             options = {getMapOptions}
             > 

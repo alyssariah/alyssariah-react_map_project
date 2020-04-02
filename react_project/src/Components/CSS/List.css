@@ -28,18 +28,11 @@
   padding: 0;
   margin: 10px;
   text-decoration: underline;
-}
-.assignWithTitle {
-  margin: 30px 0;
-  flex:1;
-  width: 300px;
-  padding: 3px;
-  background-color: white;
-}
+} 
+
 .assignWithTitle h2{
   color: #A8D2A9;
-  padding-top:0;
-  margin-top: 10px;
+  padding-top:20px;
   text-align: center;
 }
 .assign {
@@ -59,11 +52,8 @@ ul li {
   padding: 0;
 }
 @media (min-width: 768px){
-  .listInformation header {
-    visibility: visible;
-  }
-  .list {
-    margin-top: 8vh;
+  .list h2 {
+    font-size: 36px;
   }
   .list h3 {
     font-size: 32px;
@@ -76,7 +66,18 @@ ul li {
     font-size: 24px;
   }
   .assign ul li {
-    font-size: 18px;
+    font-size: 20px;
     padding: 5px;
+  }
+}
+@media (min-width: 1024px){
+  .fullList {
+    width: 80vw;
+  }
+  .fullList h4 {
+    font-size: 28px;
+  }
+  .assign ul li {
+    font-size: 24px;
   }
 }

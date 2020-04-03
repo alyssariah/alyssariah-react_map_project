@@ -107,14 +107,14 @@ Time frames are also key in the development cycle.  You have limited time to cod
 This is part of my click function I used to toggle my plus sign to a minus sign
 
 ```
-const _onClick = () => {
-    if(plusStatus === true){
-        for(let i= 0; i< props.rideList.length; i++){
-            if(props.currentPassenger === props.rideList[i]){
-                props.rideList[i].assign = props.object.name;
-            }
-        } 
-        props.resetPage() 
-        setPlusStatus(false)
-      } 
+ {props.driverList.map((object, index)=> {
+    if(props.driverList.length >0){
+        return (
+            <Marker position={{lat: object.lat, lng: object.lng}} key={index} 
+                    onClick={()=>{setSelectDriver(object)}}
+                    icon={{ url: "https://storage.needpix.com/rsynced_images/icon-2070748_1280.png", scaledSize: new window.google.maps.Size(35, 50)}}/>           
+        )
+    }   
+})
+}
 ```

@@ -2,7 +2,7 @@
 
 ## Project Links
 
-- [add your github repo link]()
+- https://github.com/alyssariah/react_map_project
 - [add your deployment link]()
 
 ## Project Description
@@ -51,15 +51,15 @@ MVP List:
 - [x] Assigning passengers to drivers on Maps
 - [x] Navigation bar
 - [x] Form for input of addresses
-- [ ] Responsive
-- [ ] Make ListPage
+- [x] Responsive
+- [x] Make ListPage
 - [x] Make HomePage
 - [x] Pass information over to DriverList from Maps
 
 
 
 PostMVP List:
-- [ ] CSS touchups
+- [x] CSS touchups
 - [ ] Discover driver routes for driver
 
 
@@ -71,6 +71,9 @@ Based on the initial logic defined in the previous sections try and breakdown th
 | Component | Description | 
 | --- | :---: |  
 | App | This will have the navigation bar and footer with a switch route of Map and DriverList between the nav and the footer | 
+| Home | This will display information about my app | 
+| Form | User can enter names and addresses of drivers and passengers | 
+| ShowDrivers | User can click on the driver they want to assign to a passenger|
 | Map | This will take in the api data from google maps and render a map. It will also place markers on map based on the addresses input from the form in the navigation bar | 
 | List | This will render a list based on rides assigned to drivers from the Map component | 
 
@@ -79,32 +82,39 @@ Time frames are also key in the development cycle.  You have limited time to cod
 
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Marker API | H | 3hrs| 1hrs | -hrs |
-| Marker from Input | H | 4hrs| 2hrs | -hrs |
-| Navbar| H | 2hrs| 1hrs | -hrs |
+| Marker API | H | 3hrs| 1hrs | 2hrs |
+| Marker from Input | H | 4hrs| 2hrs | 2hrs |
+| Navbar| H | 2hrs| 1hrs | 3hrs |
 | Home | H | 2hrs| 1hrs | 3hrs |
-| Form | H | 2hrs| 2hrs | -hrs |
-| InfoBar | H | 2hrs| 3hrs | 4hrs |
+| Form | H | 2hrs| 2hrs | 2hrs |
+| InfoBar | H | 2hrs| 3hrs | 6hrs |
 | AssignPassengers | H | 4hrs| 6hrs | 8hrs |
-| List | H | 2hrs| 3hrs | -hrs |
-| Responsive| H | 4hrs| -hrs | -hrs |
-| Form to API | H | 4hrs| 2hrs | -hrs |
-| Marker Interative| H | 6hrs| 2hrs | -hrs |
+| List | H | 2hrs| 3hrs | 4hrs |
+| Responsive| H | 4hrs| 4hrs | 4hrs |
+| Form to API | H | 4hrs| 2hrs | 4hrs |
+| Marker Interative| H | 6hrs| 2hrs | 4hrs |
 | Form to DriverList | H | 4hrs| 2hrs | -hrs |
-| Form to Map| H | 4hrs| 3hrs | -hrs |
+| Form to Map| H | 4hrs| 3hrs | 5hrs |
 | Driver Routes | L | 4hrs| -hrs | -hrs |
-| CSS Touchups | H | 2hrs| -hrs | -hrs |
-| Total | H | hrs| 39hrs | -hrs |
+| CSS Touchups | H | 2hrs| 4hrs | 4hrs |
+| Total | H | hrs| 39hrs | 46hrs |
 
-## Additional Libraries
- Use this section to list all supporting libraries and thier role in the project such as Axios, ReactStrap, D3, etc. 
+## Additional Libraries 
+ I used react-google-maps to create the interactice map on react.
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of an a brief description.  Code snippet should not be greater than 10 lines of code. 
+This is part of my click function I used to toggle my plus sign to a minus sign
 
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
+const _onClick = () => {
+      if(plusStatus === true){
+          for(let i= 0; i< props.rideList.length; i++){
+              if(props.currentPassenger === props.rideList[i]){
+                  props.rideList[i].assign = props.object.name;
+              }
+          } 
+          props.resetPage() 
+          setPlusStatus(false)
+      } 
 ```

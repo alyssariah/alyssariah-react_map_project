@@ -42,17 +42,15 @@ const SimpleMap = (props) => {
             {props.driverList.map((object, index)=> {
                 if(props.driverList.length >0){
                     return (
-                        <Marker position={{lat: object.lat, lng: object.lng}}
-                               key={index} 
-                               onClick={()=>{setSelectDriver(object)}}
-                               icon={{ url: "https://storage.needpix.com/rsynced_images/icon-2070748_1280.png",
-                                       scaledSize: new window.google.maps.Size(35, 50)}}/>           
+                        <Marker position={{lat: object.lat, lng: object.lng}} key={index} 
+                                onClick={()=>{setSelectDriver(object)}}
+                                icon={{ url: "https://storage.needpix.com/rsynced_images/icon-2070748_1280.png",
+                                        scaledSize: new window.google.maps.Size(35, 50)}}/>           
                         )
                     }   
                 })
             }
-            {selectDriver && (<InfoWindow position={{lat: (selectDriver.lat), lng: selectDriver.lng}}
-                                                    onCloseClick= {()=> setSelectDriver(null)}>
+            {selectDriver && (<InfoWindow position={{lat: (selectDriver.lat), lng: selectDriver.lng}} onCloseClick= {()=> setSelectDriver(null)}>
                                     <div> <p><span>{selectDriver.name}</span><br/>{selectDriver.address}</p></div>   
                                </InfoWindow>
                         )} 
@@ -63,21 +61,20 @@ const SimpleMap = (props) => {
                                 onClick={()=> {setSelectRide(object)}}
                                 key={index} 
                                 icon={object.assign != "unassigned" ? {url:"http://maps.google.com/mapfiles/ms/icons/blue-dot.png", scaledSize: new window.google.maps.Size(50, 50)} : {url:"http://maps.google.com/mapfiles/ms/icons/red-dot.png",
-                                scaledSize: new window.google.maps.Size(50, 50)}}
-                                />
+                                scaledSize: new window.google.maps.Size(50, 50)}} />
                         )
                     }  
                 })
             }
-            {selectRide && (<InfoWindow position={{lat: (selectRide.lat), lng: selectRide.lng}}
-                                                    onCloseClick= {()=> setSelectRide(null)}>
-                                    <div> <p><span>{selectRide.name}</span><br/>{selectRide.address}</p>
+            {selectRide && (<InfoWindow position={{lat: (selectRide.lat), lng: selectRide.lng}} onCloseClick= {()=> setSelectRide(null)}>
+                                <div> 
+                                    <p><span>{selectRide.name}</span><br/>{selectRide.address}</p>
                                     <hr/>
-                                        <div onClick={()=> assignPass(selectRide)}>
-                                            <h5>Driver: <a href="#">{selectRide.assign}</a></h5>
-                                        </div>
+                                    <div onClick={()=> assignPass(selectRide)}>
+                                        <h5>Driver: <a href="#">{selectRide.assign}</a></h5>
                                     </div>
-                               </InfoWindow>
+                                </div>
+                            </InfoWindow>
                         )} 
         </GoogleMap>
         )

@@ -60,7 +60,8 @@ function Home(props){
                     <div className="alert">
                         <img className="removeIcon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Remove_sign_font_awesome.svg/512px-Remove_sign_font_awesome.svg.png"/>
                         <p>{name} has been removed from your map</p>
-                     </div>)
+                     </div>
+                )
             }
         })
     }

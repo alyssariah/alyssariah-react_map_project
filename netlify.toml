@@ -1,6 +1,6 @@
 [build]
-  command = "npm run build"
-  publish="react_project/build"
+  command = "yarn build"
+  publish="react_project/build/"
   base = "react_project"
 
 [[redirects]]

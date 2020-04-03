@@ -8,7 +8,8 @@ function Home(props){
     const [driverAlert, setDriverAlert] = useState("")
     const [alert, setAlert] = useState("")
     const [showInfo, setShowInfo] = useState(false)
-
+    const [showRemove, setShowRemove] = useState(false)
+    const [showDriveRemove, setShowDriveRemove] = useState(false)
 
     //fetching data from google sheet
     const pullGoogleSheet = async() => {
@@ -84,7 +85,7 @@ function Home(props){
     const makeDriverList = props.driverList.map((obj, index) => {
         return (
             <div className="listItem">
-                <img className="removeIcon" onClick ={()=> removeDriver(obj.name)} src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Remove_sign_font_awesome.svg/512px-Remove_sign_font_awesome.svg.png"/>
+                {showDriveRemove && (<img className="removeIcon" onClick ={()=> removeDriver(obj.name)} src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Remove_sign_font_awesome.svg/512px-Remove_sign_font_awesome.svg.png"/>)}
                 <li key={index}>{obj.name} - {obj.address}</li>
             </div>
         )
@@ -92,7 +93,7 @@ function Home(props){
     const makeRideList = props.rideList.map((obj, index) => {
         return (
             <div className="listItem">
-                <img className="removeIcon" onClick={()=> removeRide(obj.name)} src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Remove_sign_font_awesome.svg/512px-Remove_sign_font_awesome.svg.png"/>
+                {showRemove && (<img className="removeIcon" onClick={()=> removeRide(obj.name)} src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Remove_sign_font_awesome.svg/512px-Remove_sign_font_awesome.svg.png"/>)}
                 <li key={index}>{obj.name} - {obj.address}</li>
             </div>
         )
@@ -127,10 +128,11 @@ function Home(props){
                     <li>Once you assigned all your passengers a driver and your markers are all blue, click on the list icon to see the assignments</li>
                 </ol>
             </div>)}
-           <div className="welcome">
-                <h4>A better way to coordinate rides!</h4>
-           </div>
-           <Form makeDriverList={makeDriverList}
+            <main>
+            <div className="welcome">
+                    <h4>A better way to coordinate rides!</h4>
+            </div>
+            <Form makeDriverList={makeDriverList}
                  makeRideList={makeRideList}
                  driverList={props.driverList}
                  setDriverList={props.setDriverList}
@@ -139,7 +141,12 @@ function Home(props){
                  alert={alert}
                  setAlert={setAlert}
                  driverAlert={driverAlert}
-                 setDriverAlert={setDriverAlert}/>
+                 setDriverAlert={setDriverAlert}
+                 setShowDriveRemove={setShowDriveRemove}
+                 showDriveRemove={showDriveRemove}
+                 showRemove={showRemove}
+                 setShowRemove={setShowRemove}/>
+            </main>          
             <footer>&copy; Carpool Coordinator 2020</footer>
         </div>
     )

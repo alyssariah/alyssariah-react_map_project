@@ -1,5 +1,26 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Project Title
+
+This project is called Carpool Coordinator and uses the Google Map API to convert addresses to coordinates and displays markers on an interactive map. 
+
+The goal of this project is to help groups of people coordinate rides. There are driver markers and passenger markers on the map and a user can assign passenger markers to a driver based on location.
+
+## Motivation
+
+The motivation behind this project was started by my husband and his boy scout troop. They have activities every Wednesday and needed help to coordinate rides for boys who did not have a way to get to the activity. 
+
+## Screenshot
+![](screenshot.jpeg)
+
+## Tech/framework used
+
+Built with React
+
+## Features
+
+With this App, I am creating a file import function which takes in a google sheet with names and addresses, and fills out the lists and map with a touch of a button. 
+
 ## Available Scripts
 
 In the project directory, you can run:

@@ -49,7 +49,7 @@
 }
 .fullList ul li {
   margin: 0 10px;
-  padding: 25px 0px;
+  padding: 20px 0px;
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
 }
 @media (min-width: 768px){
@@ -80,12 +80,12 @@
   .fullList {
     width: 35vw;
     margin: 50px;
-    height: 40vh;
+    align-self: start;
   }
   .fullList h4 {
     font-size: 28px;
   }
   .assign ul li {
-    font-size: 24px;
+    font-size: 20px;
   }
 }

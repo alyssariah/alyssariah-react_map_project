@@ -13,8 +13,8 @@ function List(props){
             }
         })
         return (
-            <div className="fullList">
-                <h4 key={index}>{obj.name}</h4>
+            <div className="fullList" key={index}>
+                <h4>{obj.name}</h4>
                 <ul>
                     {placePassengers}
                 </ul>

@@ -22,8 +22,11 @@ h2 span {
   color: #A8D2A9;
 }
 .importIcon {
+  /* position: absolute;
+  top: 9vh;
+  right: 0; */
   width: 24px;
-  margin: 0 20px;
+  margin: 0 18px;
 }
 .helpIcon {
   width: 24px;
@@ -146,11 +149,11 @@ ol li {
 }
 .homeForm ul {
   list-style-type: none;
-
-  padding: 0 5px;
+  padding: 5px 20px;
+  margin: 0;
 }
 .listItem {
-  padding-bottom: 15px;
+  padding-bottom: 10px;
   margin-left: 0;
 }
 .formName {
@@ -187,9 +190,9 @@ button {
 .alert {
   color:#E17206;
   font-size: 14px;
-  padding-bottom: 15px;
   display: flex;
   justify-content: center;
+  padding-bottom: 10px;
 }
 .checkMark {
   width: 12px;
@@ -202,8 +205,8 @@ button {
 .removeIcon{
   margin-right: 5px;
   margin-left: 5px;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
 }
 .removeIcon:hover {
   cursor: pointer;
@@ -325,9 +328,6 @@ footer {
     width: 34px;
     height: 34px;
   }
-  .importIcon {
-    margin: 0 35px;
-  }
   .helpIcon:hover{
     cursor: pointer;
   }
@@ -338,20 +338,22 @@ footer {
   .instructions {
     height: 92vh;
   }
+  main {
+    display: flex;
+  }
   .welcome {
     margin-top: 8vh;
-    width: 100vw;
-    height: 75vh;
-    background-position-y: -140px;
+    height: 80vh;
+    flex: 1;
   }
   .welcome h4 {
-    height: 75vh;
+    height: 80vh;
     font-size: 60px;
   }
   .allLists {
     margin-top: 8vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
     margin-right: 5vw;
   }
@@ -364,13 +366,16 @@ footer {
   .formAddress {
     width: 30vw;
   }
+  .removeIcon {
+    width: 20px;
+    height: 20px;
+  }
   footer {
     display: block;
-    margin-top: 100px;
+    margin-top: 8vh;
     padding: 20px;
     font-size: 18px;
     background-color: black;
     color: white;
-    border-radius: 5px 5px 0px 0px;
   }
 }

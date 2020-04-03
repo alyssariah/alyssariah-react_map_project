@@ -36,6 +36,7 @@ function Form(props){
         setDriverName("")
         setDriverAddress("")
         setDisplayDriverForm(false)
+        props.setShowDriveRemove(false)
     }
     const passRideInformation = async(e) =>{
         e.preventDefault()
@@ -50,6 +51,7 @@ function Form(props){
         setRideName("")
         setRideAddress("")
         setDisplayRideForm(false)
+        props.setShowRemove(false)
     }
 
     return(
@@ -57,7 +59,9 @@ function Form(props){
             <div className="homeForm">
                 <div className="titleList">
                     <h3>Driver List</h3>
-                    <img className="addPerson" onClick={()=>setDisplayDriverForm(!displayDriverForm)}src="https://storage.needpix.com/rsynced_images/user-2493635_1280.png"/>
+                    <img className="addPerson" onClick={()=>{setDisplayDriverForm(!displayDriverForm)
+                                                            props.setShowDriveRemove(!props.showDriveRemove)}} 
+                         src="https://storage.needpix.com/rsynced_images/user-2493635_1280.png"/>
                 </div>
                 {props.driverAlert} 
                 <ul>
@@ -82,7 +86,7 @@ function Form(props){
             <div className="homeForm">
                 <div className="titleList">
                     <h3>Passenger List</h3>
-                    <img className="addPerson" onClick={()=>setDisplayRideForm(!displayRideForm)} src="https://storage.needpix.com/rsynced_images/user-2493635_1280.png"/>
+                    <img className="addPerson" onClick={()=>{setDisplayRideForm(!displayRideForm); props.setShowRemove(!props.showRemove)}} src="https://storage.needpix.com/rsynced_images/user-2493635_1280.png"/>
                 </div> 
                 {props.alert}  
                 <ul>

@@ -12,7 +12,7 @@ The motivation behind this project was started by my husband and his boy scout t
 
 ## Screenshot
 
-![alt text](screenshot.jpeg "Preview of Project")
+![Preview of Project](screenshot.jpeg "Preview of Project")
 
 ## Tech/framework used
 

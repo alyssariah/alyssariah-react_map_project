@@ -11,7 +11,8 @@ The goal of this project is to help groups of people coordinate rides. There are
 The motivation behind this project was started by my husband and his boy scout troop. They have activities every Wednesday and needed help to coordinate rides for boys who did not have a way to get to the activity. 
 
 ## Screenshot
-![](screenshot.jpeg)
+
+![alt text](screenshot.jpeg "Preview of Project")
 
 ## Tech/framework used
 

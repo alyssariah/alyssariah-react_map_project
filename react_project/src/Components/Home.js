@@ -49,26 +49,24 @@ function Home(props){
             let res = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${str},+CA&key=AIzaSyDJ56l2Y_6K3vN5rH30aKddRVljnEsuR_Y`)
             let json = await res.json();
             let place = json.results[0].geometry.location
-            console.log("place", place)
-            return {lat: place.lat, lng: place.lng}
+            return {name: driver.name, address: driver.address, lat: place.lat, lng: place.lng, assigned:"unassigned"}
         })
         const rideArr = dataArr.filter((ride)=>{
             return ride.title === "passenger"
         })
-        const tired2 = rideArr.map(async(ride, index)=>{
+        const rideData = rideArr.map(async(ride, index)=>{
             let str = ride.address.replace(/\s/g, '+');
             let res = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${str},+CA&key=AIzaSyDJ56l2Y_6K3vN5rH30aKddRVljnEsuR_Y`)
             let json = await res.json();
             let place = json.results[0].geometry.location
-            console.log("place", place)
-            return {place}
+            return {name: ride.name, address: ride.address, lat: place.lat, lng: place.lng, assign: "unassigned"}
         })
-        const resolvedFinalArray = await Promise.all(driverData); 
-        console.log("tired", resolvedFinalArray  )
+        const resolvedDriverArray = await Promise.all(driverData); 
+        const resolvedRideArray = await Promise.all(rideData)
        
-        // props.setDriverList(finalDriver)
-        // props.setRideList(finalRide)
-      }
+        props.setDriverList(resolvedDriverArray)
+        props.setRideList(resolvedRideArray)
+    }
     
     //handleChange function to take in input 
     const handleDriverName =(e) => {
@@ -180,7 +178,7 @@ function Home(props){
                 <Link to="/map"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Map_pin_icon.svg"/><br/>Map</Link>
                 <Link to="/list"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/4/43/Noun_project_list_icon_1380018_cc.svg"/><br/>Assign</Link>
             </nav>  
-            {showInfo && (<div className="instructions">
+            {showInfo && (<div className="instructions" onClick={()=> setShowInfo(false)}>
                 <ol>
                 <h4>Instructions: </h4>
                     <li>On your home page, add drivers to your driver list and passengers who need a ride to your passenger list</li>
@@ -194,7 +192,6 @@ function Home(props){
            <div className="welcome">
                 <h4>A better way to coordinate rides!</h4>
            </div>
-           </main>
            <div className="allLists">
             <div className="homeForm">
                 <div className="titleList">
@@ -247,6 +244,7 @@ function Home(props){
                 </form>)}  
             </div>
             </div>
+            </main>
             <footer>&copy; Carpool Coordinator 2020</footer>
         </div>
     )

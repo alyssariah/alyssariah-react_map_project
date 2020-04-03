@@ -22,7 +22,7 @@ h2 span {
   color: #A8D2A9;
 }
 .importIcon {
-  width: 35px;
+  width: 24px;
   margin: 0 20px;
 }
 .helpIcon {
@@ -206,6 +206,7 @@ button {
   margin-right: 5px;
   margin-left: 5px;
   width: 20px;
+  height: 20px;
 }
 .removeIcon:hover {
   cursor: pointer;
@@ -229,6 +230,9 @@ footer {
     width: 34px;
     height: 34px;
     top: 20px;
+  }
+  .importIcon {
+    width: 35px;
   }
   .instructions h4 {
     font-size: 30px;
@@ -282,14 +286,22 @@ footer {
     height: 100vh;
   }
   header {
-    height: 8vh;
+    height: 10vh;
   }
-  .nav {
-    display: inline;
-  }
-  nav { 
+  nav {
     display: none;
   }
+  /* .nav {
+    display: flex;
+    position: absolute;
+    top: 0; 
+    height: 8vh;
+    right: 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    box-shadow: none;
+    background-color: white;
+  } */
+  
   .nav {
     display: flex;
     flex-direction: column;
@@ -297,13 +309,13 @@ footer {
     align-items: center;
     position: absolute;
     top: 30vh;
-    right: 0px;
-    width: 6vw;
+    right: 5px;
+    width: 4vw;
     background-color: white;
     border: 1px solid transparent;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     border-radius: 50px;
-    margin: 0 1vw;
+    margin: 5px;
     padding: 0;
   }
   .logo {
@@ -318,43 +330,43 @@ footer {
     display: flex;
     justify-content: center;
     align-self: center;
-    /* text-align: center; */
-    /* color: #E47B06; */
-    /* color: #A8D2A9; */
     color: black;
-    padding: 30px 20px;
+    padding: 30px 30px;
     overflow: hidden;
   }
   .helpIcon {
     width: 34px;
     height: 34px;
-    top: 10px;
   }
+  .importIcon {
+    margin: 0 35px;
+  }
+  .helpIcon:hover{
+    cursor: pointer;
+  }
+  .importIcon:hover {
+    cursor: pointer;
+  }
+ 
   .instructions {
     height: 92vh;
   }
-  /* main {
-    display: flex;
-    justify-content: center;
-  } */
   .welcome {
-    margin-top: 9vh;
-    margin-left: 1vw;
-    width: 91vw;
+    margin-top: 8vh;
+    width: 100vw;
     height: 75vh;
-    background-position-y: -110px;
+    background-position-y: -140px;
   }
   .welcome h4 {
     height: 75vh;
     font-size: 60px;
   }
   .allLists {
-    margin-top: 5vh;
-    margin-right: 8vw;
+    margin-top: 8vh;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-
+    margin-right: 5vw;
   }
   .homeForm {
     width: 40vw;

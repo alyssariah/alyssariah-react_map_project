@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./CSS/SimpleMap.css"
 import {Link} from "react-router-dom"
 import DriverMarker from "./DriverMarker"
 import RideMarker from "./RideMarker"
-import DriverForm from "./DriverForm"
-import RideForm from "./RideForm"
 import ShowDrivers from "./ShowDrivers"
 import GoogleMapReact from 'google-map-react';
 
@@ -12,7 +10,6 @@ import GoogleMapReact from 'google-map-react';
 const SimpleMap = (props) => {
     //setting state
     const [center, setCenter] = useState({lat: 37.4275, lng: -122.169});
-    // const [centerC, setCenterC] = useState({props.driverList[0].lat, props.driverList[0].lng})
     const [zoom, setZoom] = useState(11);
     const [driverAddress, setDriverAddress] = useState([])
     const [rideAddress, setRideAddress] = useState([{}])
@@ -56,7 +53,7 @@ const SimpleMap = (props) => {
                  <DriverMarker lat={object.lat} 
                                lng={object.lng} 
                                key={index} 
-                               driverList={object}/>
+                               driverList={object} />
                 )
             }   
         })
@@ -72,46 +69,6 @@ const SimpleMap = (props) => {
             }  
         })
 
-
-    //setting coordinates
-    // const setDriverCoordinates = (later , longer)=>{
-    //     console.log("coordinates", later, longer)
-    //     setCenter({lat: later, lng: longer})
-    //     setDriverAddress([...driverAddress, {lat: later, lng: longer}])
-    //   } 
-    // const setCoordinates = (later , longer)=>{
-    //     console.log("coordinates", later, longer)
-    //     setCenter({lat: later, lng: longer})
-    //     setRideAddress([...rideAddress, {lat: later, lng: longer}])
-    //     console.log("Ride Address", rideAddress)
-    //   }
-
-    // const createDriverMarkers = driverAddress.map((object, index)=>{
-    //     if (Object.keys(object).length === 0){
-    //      return (
-    //          <>
-
-    //          </>
-
-    //      )
-    //     } else {
-    //     return (
-    //         <DriverMarker lat={object.lat} lng={object.lng} key={index}/>
-    //     )
-    //     }
-    // })  
-    // const createRideMarkers = rideAddress.map((object, index)=>{
-    //     if (Object.keys(object).length === 0){
-    //      return (
-    //          <>
-    //          </>
-    //      )
-    //     } else {
-    //     return (
-    //         <RideMarker lat={object.lat} lng={object.lng} key={index}/>
-    //     )
-    //     }
-    // }) 
     return (
         <div className="mapInformation">
             <header>
@@ -135,19 +92,13 @@ const SimpleMap = (props) => {
                     </ul>
                 </div>
                 )} 
-            {/* <DriverForm coordinates={setDriverCoordinates}/>
-            <RideForm coordinates={setCoordinates} /> */}
-            {/* <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Ancient_Egypt_map-en.svg" style={{ height: `92vh`, width: '100%' }}></img> */}
             <GoogleMapReact
             bootstrapURLKeys={{ key:'AIzaSyDJ56l2Y_6K3vN5rH30aKddRVljnEsuR_Y' }}
-            defaultCenter= {center}
+            center= {props.driverList.length > 0 ? {lat: props.driverList[0].lat, lng: props.driverList[0].lng}: center}
             defaultZoom={zoom}
-            options = {getMapOptions}
             > 
                 {pullDriverData}
                 {pullRideData}
-                {/* {createDriverMarkers}
-                {createRideMarkers} */}
             </GoogleMapReact>
         </div>
     );

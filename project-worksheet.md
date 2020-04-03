@@ -100,7 +100,7 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Total | H | 39hrs| -hrs | 48hrs |
 
 ## Additional Libraries 
- I used react-google-maps to create the interactice map on react.
+ - react-google-maps
 
 ## Code Snippet
 

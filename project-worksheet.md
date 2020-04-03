@@ -3,7 +3,7 @@
 ## Project Links
 
 - https://github.com/alyssariah/react_map_project
-- https://friendly-pasteur-81dc40.netlify.com
+- https://carpool-coordinator-map.netlify.com
 
 ## Project Description
 
@@ -108,13 +108,13 @@ This is part of my click function I used to toggle my plus sign to a minus sign
 
 ```
 const _onClick = () => {
-      if(plusStatus === true){
-          for(let i= 0; i< props.rideList.length; i++){
-              if(props.currentPassenger === props.rideList[i]){
-                  props.rideList[i].assign = props.object.name;
-              }
-          } 
-          props.resetPage() 
-          setPlusStatus(false)
+    if(plusStatus === true){
+        for(let i= 0; i< props.rideList.length; i++){
+            if(props.currentPassenger === props.rideList[i]){
+                props.rideList[i].assign = props.object.name;
+            }
+        } 
+        props.resetPage() 
+        setPlusStatus(false)
       } 
 ```

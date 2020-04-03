@@ -97,14 +97,14 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Form to Map| H | 4hrs| 3hrs | 5hrs |
 | Driver Routes | L | 4hrs| -hrs | -hrs |
 | CSS Touchups | H | 2hrs| 4hrs | 4hrs |
-| Total | H | hrs| 39hrs | 48hrs |
+| Total | H | 39hrs| -hrs | 48hrs |
 
 ## Additional Libraries 
  I used react-google-maps to create the interactice map on react.
 
 ## Code Snippet
 
-This is part of my click function I used to toggle my plus sign to a minus sign
+This is part of map function that loops through my array to make markers
 
 ```
  {props.driverList.map((object, index)=> {

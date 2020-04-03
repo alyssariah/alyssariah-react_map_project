@@ -6,7 +6,7 @@ import SimpleMap from "./Components/SimpleMap"
 import {Switch, Route, Link, Redirect} from "react-router-dom"
 
 function App() {
-  //setting state to pass down to list
+  //setting state to pass down
   const [driverList, setDriverList] = useState([])
   const [rideList, setRideList] = useState([])
 

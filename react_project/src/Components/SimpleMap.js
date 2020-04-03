@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "./CSS/SimpleMap.css"
 import {Link} from "react-router-dom"
 import ShowDrivers from "./ShowDrivers"
-import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow} from "react-google-maps"
+import {GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow} from "react-google-maps"
 
 
 const SimpleMap = (props) => {

@@ -1,10 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Carpool Coordinator
 
-This project uses the Google Map API to convert addresses to coordinates and displays markers on an interactive map. 
+This project uses the Google Map API to convert addresses to coordinates, and displays markers on an interactive map. 
 
-The goal of this project is to help groups of people coordinate rides. There are both driver and passenger markers on the interactive map. A user can assign passenger markers to a driver based on location.
+The goal of this project is to help groups of people coordinate rides. On the interactive map, there are driver and passenger markers. A user can assign passenger markers to a driver based on location.
 
 ## Motivation
 
@@ -21,15 +19,15 @@ The motivation behind this project was started by my husband and his boy scout t
 
 ## Tech/framework used
 
-Built with React
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Features
 
 Assigning Driver - Clicking on a passenger marker will show an info window with an "unassigned" link. Clicking on the link will show the user a list of all the drivers. The user can click on the driver who they wish to assign to that passenger. 
 
-Importing files - for some it may become annoying to enter names and addresses every time they enter the app. I am creating a file import button which takes in a google sheet with names and addresses. It will automatically fill in the list and map. 
+Importing files - it may become annoying to enter names and addresses every time they enter the app. I am creating a file import button which takes in a google sheet with names and addresses. It will automatically fill in the list and map. 
 
-Removing driver/passenger - After adding or importing a person you can remove them by clicking the "x" button. 
+Removing driver/passenger - After adding or importing a person a user can remove them by clicking the add person/edit button and then clicking then "x" button on the person they want to remove.
 
 ## Code Example 
 Implementation of Google Map in React using react-google-maps
@@ -69,7 +67,7 @@ Google Maps Javascript API
 
 ## How to use?
 
-To use this app, a user must have the names and addresses of the people they want to find on the map. On the home page they can enter the names and addresses of both drivers and passengers in the appropriate sections. They can then navigate to the map and interact with the driver and passenger markers. The Passenger markers will show the driver they are assigned to in their info window. At first, all the passenger markers will be unassigned. So the user can click on the unassigned hyperlink and then assign them to one of the drivers. When a marker is assigned, it turns blue and the user can navigate to the assigned list page afterwards to see all the assignments. 
+To use this app, a user must have the names and addresses of the people they want to find on the map. On the home page they can enter the names and addresses of both drivers and passengers in the appropriate sections. They can then navigate to the map and interact with the driver and passenger markers. The Passenger markers will show the driver they are assigned to in their info window. At first, all the passenger markers will be unassigned. So the user can click on the unassigned hyperlink and then assign them to one of the drivers. When a marker is assigned, it turns blue and the user can navigate to the assigned list page to see all the assignments. 
 
 ## Contribute
 

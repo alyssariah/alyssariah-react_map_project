@@ -277,6 +277,10 @@ footer {
   .alert {
     font-size: 16px;
   }
+  .removeIcon {
+    width: 20px;
+    height: 20px;
+  }
   nav a {
     font-size: 20px;
   }
@@ -365,10 +369,6 @@ footer {
   }
   .formAddress {
     width: 30vw;
-  }
-  .removeIcon {
-    width: 20px;
-    height: 20px;
   }
   footer {
     display: block;

@@ -1,29 +1,13 @@
 import React, {useState, useEffect} from "react"
 import {Link} from "react-router-dom"
 import "./CSS/Home.css"
+import Form from "./Form"
 
 function Home(props){
     //setting state
-    const [driverName, setDriverName] = useState("")
-    const [driverAddress, setDriverAddress] = useState("")
-    const [rideName, setRideName] = useState("")
-    const [rideAddress, setRideAddress] = useState("")
     const [driverAlert, setDriverAlert] = useState("")
     const [alert, setAlert] = useState("")
     const [showInfo, setShowInfo] = useState(false)
-    const [displayDriverForm, setDisplayDriverForm] = useState(false)
-    const [displayRideForm, setDisplayRideForm] = useState(false)
-    const [pplace,setPplace]= useState([])
-
-    //useEffect
-    useEffect(()=>{
-        if(props.driverList.length===0){
-            setDisplayDriverForm(true)
-        }
-        if(props.rideList.length === 0){
-            setDisplayRideForm(true)
-        }
-    })
 
 
     //fetching data from google sheet
@@ -40,7 +24,6 @@ function Home(props){
                 return {name: obj.gsx$name.$t, address: obj.gsx$address.$t, title: "passenger"}
             }
         })
-        console.log("dataArr", dataArr)
         const driverArr = dataArr.filter((driver)=>{
             return driver.title === "driver"
         })
@@ -68,19 +51,6 @@ function Home(props){
         props.setRideList(resolvedRideArray)
     }
     
-    //handleChange function to take in input 
-    const handleDriverName =(e) => {
-        setDriverName(e.target.value)
-    }
-    const handleDriverAddress =(e) => {
-        setDriverAddress(e.target.value)
-    }
-    const handleRideName =(e) => {
-        setRideName(e.target.value)
-    }
-    const handleRideAddress =(e) => {
-        setRideAddress(e.target.value)
-    }
     //removing item from list 
     const removeDriver = (name) => {
         props.driverList.forEach((object, index) => {
@@ -108,38 +78,7 @@ function Home(props){
 
     }
 
-    //change Address into coordinates and pass to SimpleMap
-    const passDriverInformation = async(e) =>{
-        e.preventDefault()
-        let str = driverAddress.replace(/\s/g, '+');
-        console.log("added with pluses", str)
-        let res = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${str},+CA&key=AIzaSyDJ56l2Y_6K3vN5rH30aKddRVljnEsuR_Y`)
-        let json = await res.json();
-        let place = json.results[0].geometry.location
-        console.log("place", place)
-        props.passDriverInfo(driverName, driverAddress, place.lat, place.lng)
-        setDriverAlert(<div className="alert">
-            <img className="checkMark" src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Light_green_check.svg"/>
-            {driverName} has been added to your map!</div>)
-        setDriverName("")
-        setDriverAddress("")
-        setDisplayDriverForm(false)
-    }
-    const passRideInformation = async(e) =>{
-        e.preventDefault()
-        let str = rideAddress.replace(/\s/g, '+');
-        console.log("added with pluses", str)
-        let res = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${str},+CA&key=AIzaSyDJ56l2Y_6K3vN5rH30aKddRVljnEsuR_Y`)
-        let json = await res.json();
-        let place = json.results[0].geometry.location
-        props.passRideInfo(rideName, rideAddress, place.lat, place.lng)
-        setAlert(<div className="alert">
-            <img className="checkMark" src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Light_green_check.svg"/>
-            {rideName} has been added to your map!</div>)
-        setRideName("")
-        setRideAddress("")
-        setDisplayRideForm(false)
-    }
+    
     //making the driver List and ride List
     const makeDriverList = props.driverList.map((obj, index) => {
         return (
@@ -168,7 +107,6 @@ function Home(props){
                 </div>
             </header> 
             <div className="nav">
-                {/* <h2>Carpool <span>coordinator</span></h2> */}
                 <Link to="/"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Home_icon_black.png"/></Link>
                 <Link to="/map"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Map_pin_icon.svg"/></Link>
                 <Link to="/list"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/4/43/Noun_project_list_icon_1380018_cc.svg"/></Link>
@@ -188,63 +126,19 @@ function Home(props){
                     <li>Once you assigned all your passengers a driver and your markers are all blue, click on the list icon to see the assignments</li>
                 </ol>
             </div>)}
-           <main>
            <div className="welcome">
                 <h4>A better way to coordinate rides!</h4>
            </div>
-           <div className="allLists">
-            <div className="homeForm">
-                <div className="titleList">
-                    <h3>Driver List</h3>
-                    <img className="addPerson" onClick={()=>setDisplayDriverForm(!displayDriverForm)}src="https://storage.needpix.com/rsynced_images/user-2493635_1280.png"/>
-                </div>
-                {driverAlert} 
-                <ul>
-                    {makeDriverList}
-                </ul>
-                {displayDriverForm && (<form onSubmit={passDriverInformation}>
-                    <input className="formName"
-                        type="text" 
-                        placeholder="Driver name" 
-                        onChange={handleDriverName} 
-                        value={driverName}
-                        required="required"/>
-                    <input className="formAddress"
-                        type="text" 
-                        placeholder="Driver address" 
-                        onChange={handleDriverAddress} 
-                        value={driverAddress}
-                        required="required"/>
-                    <button>Add</button>   
-                </form>)}    
-            </div>
-            <div className="homeForm">
-                <div className="titleList">
-                    <h3>Passenger List</h3>
-                    <img className="addPerson" onClick={()=>setDisplayRideForm(!displayRideForm)} src="https://storage.needpix.com/rsynced_images/user-2493635_1280.png"/>
-                </div> 
-                {alert}  
-                <ul>
-                    {makeRideList}
-                </ul> 
-                {displayRideForm && (<form onSubmit={passRideInformation}>
-                <input className="formName"
-                    type="text" 
-                    placeholder="Passenger name" 
-                    onChange={handleRideName} 
-                    value={rideName}
-                    required="required"/>
-                <input className="formAddress"
-                    type="text" 
-                    placeholder="Passenger address" 
-                    onChange={handleRideAddress} 
-                    value={rideAddress}
-                    required="required"/>
-                <button>Add</button>  
-                </form>)}  
-            </div>
-            </div>
-            </main>
+           <Form makeDriverList={makeDriverList}
+                 makeRideList={makeRideList}
+                 driverList={props.driverList}
+                 setDriverList={props.setDriverList}
+                 rideList={props.rideList}
+                 setRideList={props.setRideList}
+                 alert={alert}
+                 setAlert={setAlert}
+                 driverAlert={driverAlert}
+                 setDriverAlert={setDriverAlert}/>
             <footer>&copy; Carpool Coordinator 2020</footer>
         </div>
     )

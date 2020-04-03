@@ -4,7 +4,7 @@ function ShowDrivers(props){
     const [plusStatus, setPlusStatus] = useState(true)
     
     useEffect (()=>{
-        if (props.currentPassenger.assign === props.object.name){
+        if(props.currentPassenger.assign === props.object.name){
             setPlusStatus(false)
         }
     }, []) 

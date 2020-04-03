@@ -24,9 +24,6 @@ function List(props){
     
     return(
         <div className="listInformation">
-             <header>
-                <h2>Carpool <span>coordinator</span></h2>
-            </header> 
             <div className="nav">
                 <Link to="/"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Home_icon_black.png"/></Link>
                 <Link to="/map"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Map_pin_icon.svg"/></Link>
@@ -38,11 +35,9 @@ function List(props){
                 <Link to="/list"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/4/43/Noun_project_list_icon_1380018_cc.svg"/><br/>Assign</Link>
             </nav>
             <div className="list">
-                <div className="assignWithTitle">
-                    <h2 className="assig">Driver Assignments</h2>
-                    <div className="assign">
-                        {assignDriverList}
-                    </div>
+                <h2 className="assig">Driver Assignments</h2>
+                <div className="assign">
+                    {assignDriverList}
                 </div>
             </div>
         </div>

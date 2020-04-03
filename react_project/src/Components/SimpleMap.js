@@ -44,8 +44,7 @@ const SimpleMap = (props) => {
                     return (
                         <Marker position={{lat: object.lat, lng: object.lng}} key={index} 
                                 onClick={()=>{setSelectDriver(object)}}
-                                icon={{ url: "https://storage.needpix.com/rsynced_images/icon-2070748_1280.png",
-                                        scaledSize: new window.google.maps.Size(35, 50)}}/>           
+                                icon={{ url: "https://storage.needpix.com/rsynced_images/icon-2070748_1280.png", scaledSize: new window.google.maps.Size(35, 50)}}/>           
                     )
                 }   
                 })

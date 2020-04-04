@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 
 function Form(props){
     const [driverName, setDriverName] = useState("")
@@ -7,6 +7,15 @@ function Form(props){
     const [rideAddress, setRideAddress] = useState("")
     const [displayDriverForm, setDisplayDriverForm] = useState(false)
     const [displayRideForm, setDisplayRideForm] = useState(false)
+
+    useEffect(()=>{
+        if(props.driverList.length===0){
+            setDisplayDriverForm(true)
+        }
+        if(props.rideList.length === 0){
+            setDisplayRideForm(true)
+        }
+    }, [])
 
     //handleChange function to take in input 
     const handleDriverName =(e) => {
@@ -59,8 +68,7 @@ function Form(props){
             <div className="homeForm">
                 <div className="titleList">
                     <h3>Driver List</h3>
-                    <img className="addPerson" onClick={()=>{setDisplayDriverForm(!displayDriverForm)
-                                                            props.setShowDriveRemove(!props.showDriveRemove)}} 
+                    <img className="addPerson" onClick={()=>{setDisplayDriverForm(!displayDriverForm)}} 
                          src="https://storage.needpix.com/rsynced_images/user-2493635_1280.png"/>
                 </div>
                 {props.driverAlert} 
@@ -86,7 +94,7 @@ function Form(props){
             <div className="homeForm">
                 <div className="titleList">
                     <h3>Passenger List</h3>
-                    <img className="addPerson" onClick={()=>{setDisplayRideForm(!displayRideForm); props.setShowRemove(!props.showRemove)}} src="https://storage.needpix.com/rsynced_images/user-2493635_1280.png"/>
+                    <img className="addPerson" onClick={()=>{setDisplayRideForm(!displayRideForm)}} src="https://storage.needpix.com/rsynced_images/user-2493635_1280.png"/>
                 </div> 
                 {props.alert}  
                 <ul>

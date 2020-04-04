@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+html {
+  height: 100%;
+}
+body {
+  margin: 0 0 7vh 0;
+}
 .App {
   text-align: left;
-  height: 100vh;
   font-family: 'Questrial', sans-serif;
 }
 * {
@@ -12,6 +17,8 @@
   width: 100%;
   overflow: scroll;
 }
-
-
-
+@media (min-width: 1024px){
+  body {
+    margin: 0;
+  }
+}

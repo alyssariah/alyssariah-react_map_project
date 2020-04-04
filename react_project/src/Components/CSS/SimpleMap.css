@@ -121,6 +121,7 @@
   @media (min-width: 1024px){
     .mapInformation {
       height: 100vh;
+      margin-bottom: 0;
     }
     .nav {
       display: flex;

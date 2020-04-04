@@ -3,13 +3,13 @@ import {Link} from "react-router-dom"
 import "./CSS/Home.css"
 import Form from "./Form"
 
+
 function Home(props){
     //setting state
     const [driverAlert, setDriverAlert] = useState("")
     const [alert, setAlert] = useState("")
     const [showInfo, setShowInfo] = useState(false)
-    const [showRemove, setShowRemove] = useState(false)
-    const [showDriveRemove, setShowDriveRemove] = useState(false)
+
 
     //fetching data from google sheet
     const pullGoogleSheet = async() => {
@@ -85,7 +85,7 @@ function Home(props){
     const makeDriverList = props.driverList.map((obj, index) => {
         return (
             <div className="listItem">
-                {showDriveRemove && (<img className="removeIcon" onClick ={()=> removeDriver(obj.name)} src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Remove_sign_font_awesome.svg/512px-Remove_sign_font_awesome.svg.png"/>)}
+                <img className="removeIcon" onClick ={()=> removeDriver(obj.name)} src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Remove_sign_font_awesome.svg/512px-Remove_sign_font_awesome.svg.png"/>
                 <li key={index}>{obj.name} - {obj.address}</li>
             </div>
         )
@@ -93,7 +93,7 @@ function Home(props){
     const makeRideList = props.rideList.map((obj, index) => {
         return (
             <div className="listItem">
-                {showRemove && (<img className="removeIcon" onClick={()=> removeRide(obj.name)} src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Remove_sign_font_awesome.svg/512px-Remove_sign_font_awesome.svg.png"/>)}
+                <img className="removeIcon" onClick={()=> removeRide(obj.name)} src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Remove_sign_font_awesome.svg/512px-Remove_sign_font_awesome.svg.png"/>
                 <li key={index}>{obj.name} - {obj.address}</li>
             </div>
         )
@@ -104,20 +104,10 @@ function Home(props){
             <header>
                 <h2>Carpool <span>coordinator</span></h2>
                 <div>
-                <img onClick={pullGoogleSheet} className="importIcon" src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Font_Awesome_5_solid_file-import.svg"/>
-                <img onClick={()=>{setShowInfo(!showInfo)}}className="helpIcon" src="https://cdn1.iconfinder.com/data/icons/education-set-4/512/information-512.png"/>
-                </div>
+                    <img onClick={pullGoogleSheet} className="importIcon" src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Font_Awesome_5_solid_file-import.svg"/>
+                    <img onClick={()=>{setShowInfo(!showInfo)}}className="helpIcon" src="https://cdn1.iconfinder.com/data/icons/education-set-4/512/information-512.png"/>
+                </div>    
             </header> 
-            <div className="nav">
-                <Link to="/"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Home_icon_black.png"/></Link>
-                <Link to="/map"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Map_pin_icon.svg"/></Link>
-                <Link to="/list"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/4/43/Noun_project_list_icon_1380018_cc.svg"/></Link>
-            </div> 
-            <nav>
-                <Link to="/"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Home_icon_black.png"/><br/>Home</Link>
-                <Link to="/map"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Map_pin_icon.svg"/><br/>Map</Link>
-                <Link to="/list"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/4/43/Noun_project_list_icon_1380018_cc.svg"/><br/>Assign</Link>
-            </nav>  
             {showInfo && (<div className="instructions" onClick={()=> setShowInfo(false)}>
                 <ol>
                 <h4>Instructions: </h4>
@@ -141,12 +131,18 @@ function Home(props){
                  alert={alert}
                  setAlert={setAlert}
                  driverAlert={driverAlert}
-                 setDriverAlert={setDriverAlert}
-                 setShowDriveRemove={setShowDriveRemove}
-                 showDriveRemove={showDriveRemove}
-                 showRemove={showRemove}
-                 setShowRemove={setShowRemove}/>
-            </main>          
+                 setDriverAlert={setDriverAlert}/> 
+            </main>
+            <nav>
+                <Link to="/"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Home_icon_black.png"/><br/>Home</Link>
+                <Link to="/map"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Map_pin_icon.svg"/><br/>Map</Link>
+                <Link to="/list"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/4/43/Noun_project_list_icon_1380018_cc.svg"/><br/>Assign</Link>
+            </nav>  
+            <div className="nav">
+                <Link to="/"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Home_icon_black.png"/></Link>
+                <Link to="/map"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Map_pin_icon.svg"/></Link>
+                <Link to="/list"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/4/43/Noun_project_list_icon_1380018_cc.svg"/></Link>
+            </div>           
             <footer>&copy; Carpool Coordinator 2020</footer>
         </div>
     )

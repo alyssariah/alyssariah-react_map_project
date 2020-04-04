@@ -1,7 +1,7 @@
 [build]
   command = "npm run build"
-  publish="react_project/build"
-  base = "react_project/"
+  publish="dist"
+  base = "react_project"
 
 [[redirects]]
   from = "/*"

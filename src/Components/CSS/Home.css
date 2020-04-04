@@ -1,0 +1,387 @@
+/* Home page CSS */
+.nav {
+  display: none;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  height: 8vh;
+  position: fixed;
+  background-color: white;
+  width: 100%;
+}
+h2 {
+  padding: 0 10px;
+  font-size: 24px;
+}
+h2 span {
+  font-size: 18px;
+  color: #A8D2A9;
+}
+.importIcon {
+  width: 24px;
+  margin: 0 18px;
+}
+.helpIcon {
+  width: 24px;
+  margin-right: 15px;
+}
+.instructions {
+  margin-top: 8vh;
+  height: 84vh;
+  width: 100%;
+  position: absolute;
+  background-color:rgba(211,211,211, 0.5);
+  z-index: 4;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.instructions h4 {
+  margin: 5px 0;
+  font-size: 20px;
+}
+.instructions ol {
+  background-color: white;
+  margin: 0 10px;
+  border-radius: 10px;
+  padding: 20px 15px 20px 35px;
+  padding-right: 15px;
+  box-shadow: 2px 2px 2px 2px gray;
+}
+.welcome h2 {
+  display: none;
+}
+.welcome {
+  height: 50vh;
+  background-image: url("https://res.cloudinary.com/dwbqzx4rr/image/upload/v1585637806/maps_yixbos.png");
+  background-position: center;
+  background-size: cover;
+  color: black;
+  text-align: center;
+  font-size: 28px;
+  margin: 40px 0 0 0;
+}
+.welcome h4 {
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+  line-height: 1.3em;
+  margin: 0;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  background-color: rgba(255,255,255,0.5)
+}
+nav {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1;
+  background-color: white;
+  border: none;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+}
+nav a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  text-align: center;
+  flex: 1;
+}
+.logo{
+  height: 18px;
+  width: 15px;
+}
+/* .markerLogo {
+  margin-top: 10px;
+  width: 18px;
+  height: 18px;
+  border: 2px solid black;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  background-color: white;
+  padding-bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+ol {
+  font-size: 16px;
+  line-height: 1em;
+  margin-right: 15px;
+}
+ol li {
+  padding: 5px 0;
+  
+}
+.homeForm {
+  margin: 15px 25px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+}
+.homeForm form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.titleList {
+  display: flex;
+  justify-content: space-between
+}
+.titleList h3 {
+  padding-top: 5px;
+}
+.addPerson {
+  width: 25px;
+  height: 25px;
+  margin: 15px 20px;
+}
+.homeForm ul {
+  list-style-type: none;
+  padding: 5px 20px;
+  margin: 0;
+}
+.listItem {
+  padding-bottom: 10px;
+  margin-left: 0;
+}
+.formName {
+  height: 24px;
+  border-radius: 20px;
+}
+.formAddress {
+  height: 24px;
+  border-radius: 20px;
+}
+input {
+  border: 1px solid transparent;
+  background-color: white;
+  width: 80vw;
+  height: 36px;
+  margin: 10px 20px;
+  padding: 0 12px;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+  outline: none;
+  z-index: 1;
+}
+button {
+  font-size: 14px;
+  margin: 15px;
+  border: 2px solid black;
+  border-radius: 20px;
+  width: 100px;
+  height: 25px;
+  background-color: white;
+  margin: 10px 35% 25px;
+}
+.alert {
+  color:#E17206;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+.checkMark {
+  width: 12px;
+  display: inline;
+}
+.listItem {
+  display: flex;
+  justify-content: start;
+}
+.removeIcon{
+  margin-right: 5px;
+  margin-left: 5px;
+  width: 15px;
+  height: 15px;
+}
+.removeIcon:hover {
+  cursor: pointer;
+}
+h3  {
+  color: #A8D2A9;
+  text-align: left;
+  margin: 10px 25px;
+}
+footer {
+  display: none;
+}
+@media (min-width: 768px){
+  h2 {
+    font-size: 34px;
+  }
+  h2 span {
+    font-size: 24px;
+  }
+  .helpIcon {
+    width: 34px;
+    height: 34px;
+    top: 20px;
+  }
+  .importIcon {
+    width: 35px;
+  }
+  .instructions h4 {
+    font-size: 30px;
+    padding-bottom: 10px;
+  }
+  .instructions ol {
+    margin: 0 30px;
+  }
+  .instructions ol li {
+    line-height: 1.5em;
+    font-size: 24px;
+  }
+  .welcome {
+    height: 60vh;
+  }
+  .welcome h4 {
+    height: 60vh;
+    font-size: 44px;
+  }
+  .titleList h3 {
+    font-size: 24px;
+  }
+  .addPerson {
+    width: 30px;
+    height: 30px;
+  }
+  .formName {
+    height: 32px;
+    font-size: 18px;
+  }
+  .formAddress {
+    height: 32px;
+    font-size: 18px;
+  }
+  button {
+    height: 32px;
+    font-size: 18px;
+  }
+  .homeForm ul {
+    font-size: 20px;
+  }
+  .alert {
+    font-size: 16px;
+  }
+  .removeIcon {
+    width: 20px;
+    height: 20px;
+  }
+  nav a {
+    font-size: 20px;
+  }
+  .logo {
+    height: 24px;
+    width: 20px;
+  }
+}
+@media (min-width: 1024px){
+  .information {
+    height: 100vh;
+    margin-bottom: 0px;
+  }
+  header {
+    height: 8vh;
+    display: flex;
+  }
+  nav {
+    display: none;
+  }
+  .nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    height: 4vw;
+    width: 350px;
+    background-color: white;
+    border: 1px solid transparent;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 50px;
+    position: absolute;
+    bottom: 3vh;
+    left: 50%;
+    margin-left: -175px;
+  }
+  .nav a {
+    text-decoration: none;
+    font-size: 24px;
+    color: #A8D2A9;
+    padding: 20px;
+  }
+  .logo {
+    width: 28px;
+    height: 32px;
+  }
+  .helpIcon {
+    width: 34px;
+    height: 34px;
+   
+  }
+  .helpIcon:hover{
+    cursor: pointer;
+  }
+
+  .importIcon:hover {
+    cursor: pointer;
+  }
+  .instructions {
+    height: 92vh;
+  }
+  /* main {
+    margin-top: 8vh;
+    display: flex;
+    justify-content: space-around;
+  } */
+  .welcome {
+    margin-top: 8vh;
+    height: 90vh;
+    width: 100vw;
+    flex: 1;
+  }
+  .welcome h4 {
+    height: 90vh;
+    font-size: 60px;
+    padding-top: 10px;
+  }
+  .allLists {
+    margin-top: 4vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    /* border: 1px solid transparent;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); */
+    border-radius: 30px;
+  }
+  .homeForm {
+    width: 40vw;
+    border: 1px solid transparent;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    background-color: white;
+  }
+  .formName {
+    width: 30vw;
+  }
+  .formAddress {
+    width: 30vw;
+  }
+  footer {
+    margin-top: 7vh;
+    display: block;
+    padding: 20px;
+    font-size: 18px;
+  }
+}

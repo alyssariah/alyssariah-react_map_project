@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import "./CSS/SimpleMap.css"
+import DriverMarker from "./DriverMarker"
+import RideMarker from "./RideMarker"
 import {Link} from "react-router-dom"
 import ShowDrivers from "./ShowDrivers"
 import {GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow} from "react-google-maps"
@@ -32,51 +34,28 @@ const SimpleMap = (props) => {
     })
 
     function Map() {
-        const [selectDriver, setSelectDriver] = useState(null);
-        const [selectRide, setSelectRide] = useState(null)
+
         return(
         <GoogleMap
             defaultZoom={11}
             defaultCenter={props.driverList.length > 0 ? {lat: props.driverList[0].lat, lng: props.driverList[0].lng}: center}>
             
             {props.driverList.map((object, index)=> {
-                if(props.driverList.length >0){
-                    return (
-                        <Marker position={{lat: object.lat, lng: object.lng}} key={index} 
-                                onClick={()=>{setSelectDriver(object)}}
-                                icon={{ url: "https://storage.needpix.com/rsynced_images/icon-2070748_1280.png", scaledSize: new window.google.maps.Size(35, 50)}}/>           
-                    )
-                }   
-                })
-            }
-            {selectDriver && (
-                <InfoWindow position={{lat: (selectDriver.lat), lng: selectDriver.lng}} onCloseClick= {()=> setSelectDriver(null)}>
-                    <div> <p><span>{selectDriver.name}</span><br/>{selectDriver.address}</p></div>   
-                </InfoWindow>
-            )} 
-            {props.rideList.map((object, index)=> {
-                if(props.rideList.length >0){
-                    return (
-                        <Marker position={{lat: object.lat, lng: object.lng}}
-                                onClick={()=> {setSelectRide(object)}}
-                                key={index} 
-                                icon={object.assign != "unassigned" ? {url:"http://maps.google.com/mapfiles/ms/icons/blue-dot.png", scaledSize: new window.google.maps.Size(50, 50)} : {url:"http://maps.google.com/mapfiles/ms/icons/red-dot.png",
-                                scaledSize: new window.google.maps.Size(50, 50)}} />
-                    )
-                }  
+                 if(props.driverList.length >0){
+                     return (
+                        <DriverMarker object={object}/> 
+                     )
+                 }
             })
-            }
-            {selectRide && (
-                <InfoWindow position={{lat: (selectRide.lat), lng: selectRide.lng}} onCloseClick= {()=> setSelectRide(null)}>
-                    <div> 
-                        <p><span>{selectRide.name}</span><br/>{selectRide.address}</p>
-                        <hr/>
-                        <div onClick={()=> assignPass(selectRide)}>
-                            <h5>Driver: <a href="#">{selectRide.assign}</a></h5>
-                        </div>
-                    </div>
-                </InfoWindow>
-            )} 
+            } 
+            {props.rideList.map((object, index)=> {
+                 if(props.rideList.length >0){
+                     return (
+                        <RideMarker object={object} assignPass={assignPass}/> 
+                     )
+                 }
+            })
+            }      
         </GoogleMap>
         )
     }

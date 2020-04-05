@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
-html {
-  height: 100%;
-}
 body {
-  margin: 0 0 7vh 0;
+  margin: 0;
+  height: 92vh;
 }
 .App {
   text-align: left;
@@ -12,13 +10,10 @@ body {
 * {
   box-sizing: border-box;
 }
-.information, .mapInformation {
+.information, .mapInformation, .listInformation {
   height: 92vh;
+  margin-bottom: 0;
+  padding-bottom: 8vh;
   width: 100%;
   overflow: scroll;
-}
-@media (min-width: 1024px){
-  body {
-    margin: 0;
-  }
 }

@@ -1,7 +1,4 @@
 /* SimpleMap CSS */
-  .mapInformation Header {
-    visibility: hidden;
-  }
   hr {
     margin: 0;
     margin-bottom: 3px;
@@ -11,7 +8,6 @@
     padding: 0;
     margin: 0;
   }
-
   h5 {
     font-weight: normal;
     font-size: 12px;
@@ -77,9 +73,6 @@
     background-color: lightGray;
   }
   @media (min-width: 768px){
-    .mapInformation{
-      height: 92vh;
-    }
     .dmarker {
       width: 32px;
     }
@@ -119,10 +112,6 @@
     }
   }
   @media (min-width: 1024px){
-    .mapInformation {
-      height: 100vh;
-      margin-bottom: 0;
-    }
     .nav {
       display: flex;
       z-index: 1;

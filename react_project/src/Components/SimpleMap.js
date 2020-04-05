@@ -84,10 +84,7 @@ const SimpleMap = (props) => {
     const WrappedMap =  withScriptjs(withGoogleMap(Map));    
 
     return (
-        <div className="mapInformation">
-            <header>
-                <h2>Carpool <span>coordinator</span></h2>
-            </header> 
+        <div className="information">
             <div className="nav">
                 <Link to="/"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Home_icon_black.png"/></Link>
                 <Link to="/map"><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Map_pin_icon.svg"/></Link>

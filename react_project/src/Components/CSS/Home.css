@@ -289,7 +289,7 @@ footer {
 @media (min-width: 1024px){
   .information {
     height: 100vh;
-    margin-bottom: 0px;
+    padding-bottom: 0px;
   }
   header {
     height: 8vh;

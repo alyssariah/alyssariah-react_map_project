@@ -40,6 +40,7 @@ function List(props){
                     {assignDriverList}
                 </div>
             </div>
+            <footer>&copy; Carpool Coordinator 2020</footer>
         </div>
 
     )

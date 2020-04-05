@@ -101,19 +101,6 @@ nav a {
   height: 18px;
   width: 15px;
 }
-/* .markerLogo {
-  margin-top: 10px;
-  width: 18px;
-  height: 18px;
-  border: 2px solid black;
-  border-radius: 50% 50% 50% 0;
-  transform: rotate(-45deg);
-  background-color: white;
-  padding-bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
 ol {
   font-size: 16px;
   line-height: 1em;
@@ -172,7 +159,6 @@ input {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   font-size: 14px;
   outline: none;
-  z-index: 1;
 }
 button {
   font-size: 14px;
@@ -340,30 +326,26 @@ footer {
   .instructions {
     height: 92vh;
   }
-  /* main {
-    margin-top: 8vh;
+  main {
     display: flex;
-    justify-content: space-around;
-  } */
+  }
   .welcome {
     margin-top: 8vh;
-    height: 90vh;
+    height: 620px;
     width: 100vw;
     flex: 1;
   }
   .welcome h4 {
-    height: 90vh;
+    height: 620px;
     font-size: 60px;
     padding-top: 10px;
   }
   .allLists {
-    margin-top: 4vh;
+    margin-top: 8vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
-    width: 100%;
-    /* border: 1px solid transparent;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); */
+    /* width: 100%; */
     border-radius: 30px;
   }
   .homeForm {
@@ -379,7 +361,9 @@ footer {
     width: 30vw;
   }
   footer {
-    margin-top: 7vh;
+    position: absolute;
+    bottom: 0;
+    /* margin-top: 8vh; */
     display: block;
     padding: 20px;
     font-size: 18px;

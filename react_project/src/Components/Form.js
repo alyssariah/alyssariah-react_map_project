@@ -45,8 +45,7 @@ function Form(props){
         setDriverName("")
         setDriverAddress("")
         setDisplayDriverForm(false)
-        props.setShowDriveRemove(false)
-    }
+    }   
     const passRideInformation = async(e) =>{
         e.preventDefault()
         let str = rideAddress.replace(/\s/g, '+');
@@ -60,7 +59,6 @@ function Form(props){
         setRideName("")
         setRideAddress("")
         setDisplayRideForm(false)
-        props.setShowRemove(false)
     }
 
     return(

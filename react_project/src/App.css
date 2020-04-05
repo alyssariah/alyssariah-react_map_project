@@ -10,10 +10,15 @@ body {
 * {
   box-sizing: border-box;
 }
-.information, .mapInformation, .listInformation {
+.information{
   height: 92vh;
   margin-bottom: 0;
   padding-bottom: 8vh;
   width: 100%;
   overflow: scroll;
+}
+.mapInformation {
+  height: 92vh;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }

@@ -1,108 +1,100 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Project 2: React
-#### Overview
+## Carpool Coordinator
 
-Let's kick it up a notch and build a modular and modern front end application using React!
+This project uses the Google Map API to convert addresses to coordinates, and displays markers on an interactive map. 
 
-Like with project one, the Unit 2 project is a chance to be creative and build something you should be proud of. You will be working individually for this project, but we'll be guiding you along the process and helping as you go. 
+The goal of this project is to help groups of people coordinate rides. On the interactive map, there are driver and passenger markers. A user can assign passenger markers to a driver based on location.
 
-You must submit your full project proposal to your squad leader by 10AM EST Friday.
+## Motivation
 
-Show us what you've got!
+The motivation behind this project was started by my husband and his boy scout troop. With weekly activities, it was becoming a hassle to coordinate rides for boys who did not have a way to get to the activity. 
 
-## Requirements
+## Code style
 
-#### Your website must:
-- Be a working, interactive, React application.
-- Include data from a third-party API.
-    - Pull data into the application using an API  
-        [List of Public APIs](https://github.com/toddmotto/public-apis)  
-        [More APIs](https://github.com/abhishekbanthia/Public-APIs)  
-	[Instructor Recommended APIs](https://git.generalassemb.ly/sei-nyc-pirates/apis)
-    - TRY OUT your API in the browser by making an fetch request before you get too emotionally invested in it, to make sure it works the way you think it does...**YOU ARE REQUIRED TO SHOW US YOU CAN RECEIVE THE DATA FOR YOUR PROPOSAL**
-- Include React Router with at least 2 routes
-- Have at least 5 separate components, using a readable file structure.
-- Be built using Create React App.
-- Built mobile first 
-- Implement responsive design using flexbox, grid, or another css framework.
-- Use React Hooks
-- Be deployed via [Netlify](https://www.netlify.com/).
+-JSX 
 
-#### Your code must:
+## Screenshots
 
-- Be properly indented.  
-- Be written with semantic, camelCase JavaScript variable names.  
-- Be written with kebab-case (dashes) CSS class names.  
-- Contain no `console.log()` or commented out code in final version.  
-- Use only React for DOM manipulation.  
-- No pre-loaded `create-react-app` files or code.
+![Preview of Project](screenshot.jpeg "Preview of Project")
+![Preview of Project](map.jpeg "Preview of Project")
 
-## Necessary Deliverables
-#### A Professional README
-- Refer to this [blog](https://medium.com/@meakaakka/a-beginners-guide-to-writing-a-kickass-readme-7ac01da88ab3) as a great resource on how to create a readme.
+## Tech/framework used
 
-#### A Killer Project Proposal:
-- Refer to the [project worksheet](/project-worksheet.md) file in this repo for structuring your Proposal.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-#### For the project:
-- A git repository hosted on GitHub, with a link to your hosted project, and **frequent** commits dating back to the very beginning of the project (YOUR APP SHOULD BE LOCATED IN A SEPARATE STANDING REPO. DO NOT build your app in this repository. YOU MUST initiate a new repo on your GitHub account.) 
+## Features
 
-<hr>
+Assigning Driver - Clicking on a passenger marker will show an info window with an "unassigned" link. Clicking on the link will show the user a list of all the drivers. The user can click on the driver who they wish to assign to that passenger. 
 
-## Tips
+Importing files - it may become annoying to enter names and addresses every time they enter the app. I am creating a file import button which takes in a google sheet with names and addresses. It will automatically fill in the list and map. 
 
-* **Commit early, commit often.**  Don't be afraid to break something because you can always go back in time to a previous version.
+Removing driver/passenger - After adding or importing a person a user can remove them by clicking the add person/edit button and then clicking then "x" button on the person they want to remove.
+
+## Code Example 
+Implementation of Google Map in React using react-google-maps
+
+```
+<GoogleMap defaultZoom={11}
+            defaultCenter={props.driverList.length > 0 ? {lat: props.driverList[0].lat, lng: props.driverList[0].lng}: center}>
+        
+    {props.driverList.map((object, index)=> {
+        if(props.driverList.length >0){
+            return (
+                <Marker position={{lat: object.lat, lng: object.lng}} key={index} 
+                        onClick={()=>{setSelectDriver(object)}}
+                        icon={{ url: "https://storage.needpix.com/rsynced_images/icon-2070748_1280.png",
+                        scaledSize: new window.google.maps.Size(35, 50)}}/>           
+            )
+        }   
+    })
+    }
+    {selectDriver && (
+        <InfoWindow position={{lat: (selectDriver.lat), lng: selectDriver.lng}        onCloseClick= {()=> setSelectDriver(null)}>
+            <div>
+                <p><span>{selectDriver.name}</span><br/>{selectDriver.address}</p>
+            </div>   
+        </InfoWindow>
+    )} 
+```
+
+## API Reference
+
+Google Maps Geocoding API Reference
+
+- https://developers.google.com/maps/documentation/geocoding/start?utm_source=google&utm_medium=cpc&utm_campaign=FY18-Q2-global-demandgen-paidsearchonnetworkhouseads-cs-maps_contactsal_saf&utm_content=text-ad-none-none-DEV_c-CRE_315916117595-ADGP_Hybrid+%7C+AW+SEM+%7C+BKWS+~+Google+Maps+Geocoding+API-KWID_43700040099688305-kwd-295562635667-userloc_9031970&utm_term=KW_google%20maps%20geocoding%20api-ST_google+maps+geocoding+api&gclid=CjwKCAjwvZv0BRA8EiwAD9T2VXHei3NtKw4S0m7iRy9KX52OLcJ5BLXD1ZyzsWrP9IBwz9XF9NtU1hoCzv4QAvD_BwE
+
+Google Maps Javascript API
+ - https://developers.google.com/maps/documentation/javascript/tutorial
+
+## How to use?
+
+To use this app, a user must have the names and addresses of the people they want to find on the map. On the home page they can enter the names and addresses of both drivers and passengers in the appropriate sections. They can then navigate to the map and interact with the driver and passenger markers. The Passenger markers will show the driver they are assigned to in their info window. At first, all the passenger markers will be unassigned. So the user can click on the unassigned hyperlink and then assign them to one of the drivers. When a marker is assigned, it turns blue and the user can navigate to the assigned list page to see all the assignments. 
+
+## Contribute
+
+Here are some following guidelines to contribute to Carpool Coordinator. 
+
+### Write detailed information
+Detailed information is very helpful to understand an issue.
+
+For example:
+* How to reproduce the issue, step-by-step.
+* The expected behavior (or what is wrong).
+* Screenshots for issues.
+* The application version.
+* The operating system.
 
 
-## Check out these awesome websites for inspiration
-- https://www.foursquare.com
-- https://www.nike.com
-- https://www.airbnb.com
-- https://www.stripe.com
-- https://www.etsy.com
-- https://www.moma.org
-- https://www.nytimes.com
-- https://www.mint.com
-- https://www.popeyes.com
-- https://www.bk.com/menu/burgers
+### Pull Requests
+Pull Requests are always welcome. 
 
-## Getting Unstuck
+1. When you edit the code, please run `npm run test` to check the formatting of your code before you `git commit`.
+2. Ensure the PR description clearly describes the problem and solution.
 
-* **Don't hesitate to write messy code to solve short-term problems**&mdash;***Refactor later***
-* **Read the docs for whatever technologies you use**. The docs often include a tutorial that can help you get started, and learning to read documentation is crucial to your success as a developer.
 
-## Asking For Help
+## License
 
-### In-person Support
+Carpool Coordinator © Alyssa Jackson
 
-Each student will be given 5 (five) tokens, redeemable at any time during regular
-class and Study Hall time (not including evening Office hours), for 20 minutes
-with an instructor. Tokens cannot be transferred between students - there is no
-black market for tokens.
 
-Instructors will not be holding open office hours during project week. This is
-to give you the opportunity to solve issues and errors you run in to on your own
-and with your classmates. Jared, however, will still hold his office hours as planned.
 
-An instructor will be assigned to each team and wil check in with your team
-every day for about 15 minutes. The purpose of these check-ins is not to
-discuss technical questions, but to answer questions about workflow and get a status checkin.
-
-#### Maximizing Effectiveness of Support Sessions
-
-Prior to using one of your tokens, we ***strongly recommend*** that you file an issue on this repository in order to both provide the instructor with a point of reference regarding your code and the issue you are having. This will enable us to give you more effective guidance.
-
-When you submit an issue please include the following:
-
-  1. A code snippet
-  2. A precise and specific description of your issue
-  3. What error you got
-  4. What you already tried to resolve your error and the result of those attempts
-
-> [Check here for details on this process](https://github.com/ga-dc/wdi12/blob/master/asking-for-help.md#during-project-weeks).
-
-We also strongly recommend **using Slack to get help from your classmates**. Chances are you all will be running into similar problems.
-
-## A Note on Plagiarism
-
-Take a moment to re-familiarize yourself with the [plagiarism policy](https://git.generalassemb.ly/seir-1118/Administrative/blob/master/plagiarism.md), specifically on using work you find online and on work you do with other students.
 

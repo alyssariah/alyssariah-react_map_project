@@ -4,17 +4,17 @@ import "./CSS/List.css"
 
 function List(props){
     
-    const assignDriverList = props.driverList.map((obj, index) => {
-        const placePassengers = props.rideList.map((object, index) => {
-            if(object.assign === obj.name){
+    const assignDriverList = props.driverList.map((driver, index) => {
+        const placePassengers = props.rideList.map((ride, index) => {
+            if(ride.assign === driver.name){
                 return (
-                    <li key={index}>{object.name} - {object.address}</li>
+                    <li key={index}>{ride.name} - {ride.address}</li>
                 )
             }
         })
         return (
             <div className="fullList" key={index}>
-                <h4>{obj.name}</h4>
+                <h4>{driver.name}</h4>
                 <ul>
                     {placePassengers}
                 </ul>
